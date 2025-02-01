@@ -1,0 +1,370 @@
+/*Стили для компонента MainPageHeader*/
+
+/* Стили для всего хедера*/
+.containerHeader {
+  display: flex;
+  background-color: #93C572;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+/*Стили для контйнера лого с названием*/
+.logoContainer {
+  flex: 1;
+  align-items: center;
+  display: flex;
+
+}
+
+/*Стили для картинки лого */
+.Logophoto {
+  width: 13%;
+  height: auto;
+  margin-left: 30px;
+}
+
+/*Стили для названия компании */
+.Logo {
+  width: 30%;
+  height: auto;
+  margin-left: 5px;
+}
+
+
+/*Стили для контейнера с меню*/
+.menu {
+  flex: 2;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 15px;
+  /* margin-left: 7vw; */
+  margin-right: 2vw;
+}
+
+.menuItem {
+  position: relative;
+  display: inline-block;
+
+}
+
+/*Стили для кнопок меню */
+.menubtn {
+  min-width: 130px;
+  background-color: #F5F5DC;
+  color: #678F4E;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  white-space: nowrap;
+  border: 3px solid #678F4E;
+  font-size: 14px;
+}
+
+.menu a {
+  display: block;
+  text-align: center;
+  padding: 10px;
+}
+
+.menubtn:hover {
+  background-color: #678F4E;
+  color: white;
+  transform: translateY(-2px);
+  border: 2px solid white;
+}
+
+.dropdown {
+  display: none;
+  position: absolute;
+  min-width: 130px;
+  list-style-type: none;
+  background-color: #F5F5DC;
+  padding: 3px;
+  font-size: 14px;
+  margin-top: 1px;
+  border-radius: 10px;
+  border: 2px solid #678F4E;
+}
+
+.menuItem:hover .dropdown {
+  display: block;
+}
+
+.dropdown li {
+  padding: 0 8px;
+}
+
+.dropdown li a {
+  text-decoration: none;
+  color: #678F4E;
+  font-weight: bold;
+  line-height: 1;
+  /* Минимальное расстояние между строками */
+}
+
+.dropdown li a:hover {
+  background-color: #678F4E;
+  color: white;
+  border-radius: 15px;
+  border: 2px solid white;
+}
+
+.h {
+  width: 100%;
+  height: 5px;
+  background-color: white;
+  border: none;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 300px;
+  background-color: #F5F5DC;
+}
+
+
+/******MAINPAGEPHOTO**********/
+.h2 {
+  font-size: 28px;
+  font-weight: bold;
+  padding: 10px 0 10px 0;
+  font-family: Playwrite India;
+  color: #556B2F;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.carousel {
+  display: flex;
+  background-color: #F5F5DC;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 280px;
+  overflow: hidden;
+}
+
+.carouselTrack {
+  display: grid;
+  transition: transform 0.5s ease-in-out;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 15px;
+  margin: 0 10px 20px 10px;
+}
+
+.image {
+  min-width: 260px;
+  max-height: 150px;
+  border-radius: 10px;
+}
+
+.dots {
+  margin-top: 10px;
+  display: flex;
+  gap: 8px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  background-color: rgb(200, 198, 198);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.5s;
+}
+
+.dot.active {
+  background-color: #678F4E;
+}
+
+/************MAINPAGEBODY*******************/
+
+.containerBody {
+  display: flex;
+  width: 100%;
+  height: auto;
+  gap: 20px;
+  background-color: #F5F5DC;
+ 
+}
+
+.leftcolumn{
+  display: flex;
+  width: 25%;
+  flex-direction: column;
+  align-items: center;
+  height: auto;
+  margin: 20px;
+  padding: 10px;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.searchInput  {
+  margin: 10px ;
+  border-radius: 6px;
+  width:350px;
+  padding: 5px;
+  border: 2px solid #93C572;
+  background-color: rgb(248, 246, 246);
+}
+
+.searchInput:hover {
+  border: 2px solid #678F4E;
+}
+
+.calendar {
+  display: flex;
+  flex-direction: column;
+  margin: 5px 0 5px 0;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.calendar button {
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.calendar select {
+  width: 50%;
+  padding: 5px;
+  margin-bottom: 10px;
+  text-align: center;
+  border: 1px solid #678F4E;
+  background-color: rgb(248, 246, 246);
+}
+
+.calendar select option:hover {
+  background-color: green !important;
+}
+
+.today {
+  background-color: #93C572 !important; /* Зеленый фон */
+  color: white !important; /* Белый текст */
+  border-radius: 40%; /* Круглая форма */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+/*********MainPageBodyNews*******************/
+
+.news {
+  margin-top: 40px;
+}
+
+.news h3 {
+  font-size: 1.5rem;
+  color: #678F4E;
+  margin-bottom: 15px;
+}
+
+.newsitem {
+  background: #FFFFFF;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+.newsitem h4 {
+  font-size: 1.2rem;
+  color: #678F4E;
+}
+
+.newsitem p {
+  color: #666;
+  margin: 10px 0;
+}
+
+.newsitem a {
+  color: #FF6347;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.newsitem a:hover {
+  text-decoration: underline;
+}
+
+
+/***Body right****/
+.rightcolumn {
+  display: flex;
+  width: 75%;
+  background: white;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+
+  flex-direction: column;
+  /* align-items: center; */
+  /* height: auto; */
+  margin: 20px 20px 20px 0;
+  background-color: white;
+  border-radius: 10px;
+}
+
+
+.container{
+  display: flex;
+  flex-direction: column;
+}
+
+.categorycontainer{
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+  margin: 10px;
+}
+
+.h2Country {
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+  padding: 0 0 10px 0;
+  font-family: Playwrite India;
+  color: #556B2F;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.categoryitem {
+  position: relative;
+  overflow: hidden; /* Чтобы изображение не выходило за границы */
+  border-radius: 8px;
+}
+
+.categoryimage {
+  width: 100%; /* Занимает всю ширину элемента */
+  height: 150px; /* Фиксированная высота */
+  object-fit: cover; /* Обрезает изображение по пропорциям */
+  border-radius: 8px; /* Скругление углов */
+  transition: transform 0.3s ease-in-out; /* Плавное увеличение */
+}
+
+.categorytext {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  color: white;
+  font-weight: bold;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.categoryitem:hover .categoryimage {
+  transform: scale(1.1); /* Увеличение на 10% при наведении */
+}
+
+
+
