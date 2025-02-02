@@ -1,5 +1,6 @@
-"use client";
-import { useState, useEffect } from "react";
+// "use client";
+// import { useState, useEffect } from "react";
+import React from "react";
 import styles from "./MainPageHeader.module.css";
 import CalendarComponent from "./MainPageBodyCalendar";
 import News from "./MainPageBodyNews";

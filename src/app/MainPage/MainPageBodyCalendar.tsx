@@ -61,6 +61,7 @@
 //     );
 // }
 
+"use client";
 import { useState } from "react";
 import Calendar from "react-calendar";
 import styles from "./MainPageHeader.module.css";
@@ -88,7 +89,7 @@ export default function CalendarComponent() {
 
     // Получаем текущий месяц и год
     const currentMonth = dayjs().month();
-    const currentYear = dayjs().year();
+    const _currentYear = dayjs().year();
 
     return (
         <div className={styles.calendar}>
