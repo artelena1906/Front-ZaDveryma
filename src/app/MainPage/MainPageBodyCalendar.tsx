@@ -63,7 +63,7 @@
 
 "use client";
 import { useState } from "react";
-import Calendar from "react-calendar";
+import Calendar, { CalendarProps } from "react-calendar";
 import styles from "./MainPageHeader.module.css";
 import "react-calendar/dist/Calendar.css";
 import dayjs from "dayjs";
@@ -82,9 +82,12 @@ export default function CalendarComponent() {
         setIsMonthPickerOpen(false);
     };
 
+    type Value = Date | Date[] | null;
+
     // Функция для обработки выбора даты на календаре
-    const handleDateChange = (newDate: Date | null) => {
-        setDate(newDate); // Позволяет принимать null
+    const handleDateChange: CalendarProps["onChange"] = (newDate) => {
+        if (Array.isArray(newDate)) return; // Если это диапазон дат — игнорируем
+        setDate(newDate); // Устанавливаем дату
     };
 
     // Получаем текущий месяц и год
