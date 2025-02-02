@@ -63,16 +63,16 @@
 
 "use client";
 import { useState } from "react";
-import Calendar, { CalendarProps } from "react-calendar";
+import Calendar, { CalendarProps } from "react-calendar"; // Импортируем CalendarProps
 import styles from "./MainPageHeader.module.css";
 import "react-calendar/dist/Calendar.css";
 import dayjs from "dayjs";
-import 'dayjs/locale/uk'; // Импорт локали
+import 'dayjs/locale/uk';
 
-dayjs.locale('uk'); // Установка локали
+dayjs.locale('uk');
 
 export default function CalendarComponent() {
-    const [date, setDate] = useState<Date | null>(new Date()); // Разрешаем значение null
+    const [date, setDate] = useState<Date | null>(new Date());
     const [isMonthPickerOpen, setIsMonthPickerOpen] = useState(false);
 
     const handleMonthChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -82,21 +82,18 @@ export default function CalendarComponent() {
         setIsMonthPickerOpen(false);
     };
 
-    type Value = Date | Date[] | null;
-
-    // Функция для обработки выбора даты на календаре
+    // Обработчик выбора даты на календаре
     const handleDateChange: CalendarProps["onChange"] = (newDate) => {
-        if (Array.isArray(newDate)) return; // Если это диапазон дат — игнорируем
-        setDate(newDate); // Устанавливаем дату
+        if (Array.isArray(newDate)) return; // Игнорируем диапазон дат
+        setDate(newDate);
     };
 
-    // Получаем текущий месяц и год
-    const currentMonth = dayjs().month();
-    // const _currentYear = dayjs().year();
+    // Текущий месяц
+    const currentMonth = date ? dayjs(date).month() : dayjs().month();
 
     return (
         <div className={styles.calendar}>
-            {/* Заголовок с селектором */}
+            {/* Кнопка для выбора месяца */}
             <button onClick={() => setIsMonthPickerOpen(!isMonthPickerOpen)}>
                 📅 Вибрати місяць
             </button>
@@ -114,29 +111,21 @@ export default function CalendarComponent() {
 
             {/* Календарь */}
             <Calendar
-                onChange={handleDateChange} // Передаем handleDateChange
+                onChange={handleDateChange}
                 value={date}
                 view="month"
                 locale="uk"
                 navigationLabel={({ date }) => (
-                    <span style={{ color: "green", fontWeight: "bold", fontSize:"20px" }}>
+                    <span style={{ color: "green", fontWeight: "bold", fontSize: "20px" }}>
                         {dayjs(date).format("MMMM YYYY")}
                     </span>
                 )}
-                tileClassName={({ date: calendarDate }) => {
-                    // Если выбран текущий месяц и дата совпадает с сегодняшним днем
-                    if (dayjs(calendarDate).month() === currentMonth && dayjs(calendarDate).isSame(dayjs(), "day")) {
-                        return styles.today;
-                    }
-                    return ""; // Для других месяцев не выделяем сегодняшнюю дату
-                }}
-                // Убираем выделение сегодняшней даты в календаре, если выбран месяц, отличный от текущего
-                tileDisabled={({ date: calendarDate }) => {
-                    if (dayjs(calendarDate).month() !== currentMonth) {
-                        return true; // Отключаем выделение даты для других месяцев
-                    }
-                    return false;
-                }}
+                tileClassName={({ date: calendarDate }) => 
+                    dayjs(calendarDate).isSame(dayjs(), "day") ? styles.today : ""
+                }
+                tileDisabled={({ date: calendarDate }) => 
+                    dayjs(calendarDate).month() !== currentMonth
+                }
             />
         </div>
     );
