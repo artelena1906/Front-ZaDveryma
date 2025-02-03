@@ -72,35 +72,33 @@ import 'dayjs/locale/uk';
 dayjs.locale('uk');
 
 export default function CalendarComponent() {
-    const [date, setDate] = useState<Date | null>(new Date());
+    const [date, setDate] = useState(() => new Date().toISOString());
     const [isMonthPickerOpen, setIsMonthPickerOpen] = useState(false);
 
     const handleMonthChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         const selectedMonth = parseInt(event.target.value, 10);
-        const newDate = new Date(date?.getFullYear() || new Date().getFullYear(), selectedMonth, 1);
-        setDate(newDate);
+        const newDate = new Date(new Date(date).getFullYear(), selectedMonth, 1);
+        setDate(newDate.toISOString());
         setIsMonthPickerOpen(false);
     };
 
-    // Обработчик выбора даты на календаре
     const handleDateChange: CalendarProps["onChange"] = (newDate) => {
-        if (Array.isArray(newDate)) return; // Игнорируем диапазон дат
-        setDate(newDate);
+        if (!newDate || Array.isArray(newDate)) return; // Проверяем на null и массив
+    
+        setDate(newDate.toISOString()); // Сохраняем в виде строки
     };
 
     // Текущий месяц
-    const currentMonth = date ? dayjs(date).month() : dayjs().month();
+    const currentMonth = dayjs(date).month();
 
     return (
         <div className={styles.calendar}>
-            {/* Кнопка для выбора месяца */}
             <button onClick={() => setIsMonthPickerOpen(!isMonthPickerOpen)}>
                 📅 Вибрати місяць
             </button>
 
-            {/* Список месяцев */}
             {isMonthPickerOpen && (
-                <select onChange={handleMonthChange} value={date?.getMonth() || 0}>
+                <select onChange={handleMonthChange} value={new Date(date).getMonth()}>
                     {Array.from({ length: 12 }, (_, i) => (
                         <option key={i} value={i}>
                             {dayjs().month(i).format("MMMM")}
@@ -109,10 +107,9 @@ export default function CalendarComponent() {
                 </select>
             )}
 
-            {/* Календарь */}
             <Calendar
                 onChange={handleDateChange}
-                value={date}
+                value={new Date(date)} // Преобразуем обратно в Date перед передачей в компонент
                 view="month"
                 locale="uk"
                 navigationLabel={({ date }) => (
@@ -130,3 +127,4 @@ export default function CalendarComponent() {
         </div>
     );
 }
+
