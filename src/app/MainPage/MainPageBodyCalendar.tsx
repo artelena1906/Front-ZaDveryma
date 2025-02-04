@@ -127,18 +127,17 @@ export default function CalendarComponent() {
                 )}
                 tileClassName={({ date: calendarDate }) => {
                     const isToday = dayjs(calendarDate).isSame(dayjs(), "day"); // Проверяем, является ли дата сегодняшней
-                    const isCurrentMonth = dayjs(calendarDate).month() === dayjs().month(); // Проверяем, является ли месяц текущим
+                    const isCurrentMonth = dayjs(calendarDate).month() === selectedMonth; // Проверяем, принадлежит ли день выбранному месяцу
                     const isFirstDayOfMonth = dayjs(calendarDate).date() === 1; // Проверяем, является ли дата первым числом месяца
-                    const isSelectedMonth = dayjs(calendarDate).month() === selectedMonth; // Проверяем, совпадает ли месяц с выбранным через селектор
 
                     // Если это сегодня, выделяем зелёным
                     if (isToday) return styles.today;
 
                     // Если это первое число выбранного месяца, не выделяем его синим
-                    if (isFirstDayOfMonth && isSelectedMonth) return styles.noHighlight;
+                    if (isFirstDayOfMonth && isCurrentMonth) return styles.noHighlight;
 
-                    // Если это текущий месяц, но не первое число, не применяем стили
-                    if (isCurrentMonth) return "";
+                    // Если день не принадлежит выбранному месяцу, закрашиваем светло-серым
+                    if (!isCurrentMonth) return styles.otherMonthDay;
 
                     // Для всех остальных случаев
                     return "";

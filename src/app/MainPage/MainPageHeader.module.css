@@ -371,5 +371,10 @@
   color: inherit !important; /* Оставляем цвет текста по умолчанию */
 }
 
+.otherMonthDay {
+  background-color: #f0f0f0 !important; /* Светло-серый фон */
+  color: #a0a0a0 !important; /* Серый цвет текста для лучшей читаемости */
+}
+
 
 
