@@ -38,7 +38,6 @@
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   gap: 15px;
-  /* margin-left: 7vw; */
   margin-right: 2vw;
 }
 
@@ -299,15 +298,12 @@
 /***Body right****/
 .rightcolumn {
   display: flex;
-  width: 75%;
+  width: 70%;
   background: white;
   padding: 10px;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-
   flex-direction: column;
-  /* align-items: center; */
-  /* height: auto; */
   margin: 20px 20px 20px 0;
   background-color: white;
   border-radius: 10px;
@@ -316,14 +312,18 @@
 
 .container{
   display: flex;
+  /* width: 100%; */
   flex-direction: column;
 }
 
-.categorycontainer{
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
+.categorycontainer {
+  display: flex;
   gap: 10px;
-  margin: 10px;
+  margin: 0 20px 0 20px;
+  overflow-x: auto; /* Горизонтальная прокрутка */
+  scroll-snap-type: x mandatory; /* Притягивание элементов при скролле */
+  padding: 10px;
+  /* white-space: nowrap;  */
 }
 
 .h2Country {
@@ -337,19 +337,20 @@
   font-weight: bold;
 }
 
-.categoryitem {
+/* .categoryitem {
   position: relative;
   overflow: hidden; /* Чтобы изображение не выходило за границы */
-  border-radius: 8px;
-}
+  /* border-radius: 8px; */
+/*} */
 
 .categoryimage {
-  width: 100%; /* Занимает всю ширину элемента */
-  height: 150px; /* Фиксированная высота */
-  object-fit: cover; /* Обрезает изображение по пропорциям */
-  border-radius: 8px; /* Скругление углов */
-  transition: transform 0.3s ease-in-out; /* Плавное увеличение */
+  width: 180px;
+  height: 180px;
+  border-radius: 5px;
+  object-fit: cover;
+  /* margin-bottom: 10px; */
 }
+
 
 .categorytext {
   position: absolute;
@@ -374,6 +375,54 @@
 .otherMonthDay {
   background-color: #f0f0f0 !important; /* Светло-серый фон */
   color: #a0a0a0 !important; /* Серый цвет текста для лучшей читаемости */
+}
+
+.categorylink {
+  text-decoration: none;
+  color: inherit;
+}
+
+.alphabetContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30px, 1fr));
+  gap: 5px;
+  margin: 20px 20px 0 20px;
+  justify-content: center;
+  max-width: 100%; /* Ограничиваем ширину */
+  overflow: hidden; /* Скрываем выходящие элементы */
+  box-sizing: border-box; /* Учитываем padding и border в размере элемента */
+  padding: 5px; /* Немного отступов, чтобы не прижималось к краям */
+}
+
+/* .menubtn {
+  min-width: 130px;
+  background-color: #F5F5DC;
+  color: #678F4E;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  white-space: nowrap;
+  border: 3px solid #678F4E;
+  font-size: 14px;
+} */
+
+.alphabetLetter {
+  background-color: #F5F5DC;
+  border: 1px solid #678F4E;
+  border-radius: 10px;
+  padding: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  text-align: center;
+  font-size: 12px;
+  color: #678F4E;
+  transition: background-color 0.3s ease;
+}
+
+.alphabetLetter:hover {
+  background-color: #ddd;
 }
 
 
