@@ -3,6 +3,7 @@ import styles from "./MainPageHeader.module.css";
 import CalendarComponent from "./MainPageBodyCalendar";
 import News from "./MainPageBodyNews";
 import Country from "./MainPageBodyCountry";
+import Travel from "./MainPageBodyTravel";
 
 
 export default function Body() {
@@ -18,8 +19,8 @@ export default function Body() {
             </div>
             <div className={styles.rightcolumn}>
             <Country />
-            </div>
-            
+            <Travel/>
+            </div>  
         </div>
     );
 }
