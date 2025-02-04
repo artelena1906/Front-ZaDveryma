@@ -47,6 +47,7 @@ import styles from "./MainPageHeader.module.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
+import { Swiper as SwiperClass } from 'swiper/types';
 import { Navigation } from "swiper/modules";
 
 export default function Country() {
@@ -57,7 +58,9 @@ export default function Country() {
     }
 
     const [country, setCountry] = useState<Country[]>([]);
-    const swiperRef = useRef<any>(null); // Реф для управления Swiper
+    // const swiperRef = useRef<any>(null); 
+    const swiperRef = useRef<SwiperClass | null>(null);
+
 
     useEffect(() => {
         fetch("/MainPageHeader.json")
@@ -73,57 +76,56 @@ export default function Country() {
     const handleAlphabetClick = (letter: string) => {
         const index = country.findIndex((item) => item.name.startsWith(letter));
         if (index !== -1 && swiperRef.current) {
-            swiperRef.current.swiper.slideTo(index); // Прокручиваем к нужному слайду
+            swiperRef.current.slideTo(index); // Убираем `.swiper`
         }
-    };
+    }
+        // Украинский алфавит
+        const ukrainianAlphabet = "АБВГІКМНПРСТФХЧШЯ";
 
-    // Украинский алфавит
-    const ukrainianAlphabet = "АБВГІКМНПРСТФХЧШЯ";
+        return (
+            <div className={styles.container}>
+                <h2 className={styles.h2Country}>Країни</h2>
 
-    return (
-        <div className={styles.container}>
-            <h2 className={styles.h2Country}>Країни</h2>
-
-            <div className={styles.categorycontainer}>
-                {/* Карусель стран */}
-                <Swiper
-                    ref={swiperRef}
-                    modules={[Navigation]}
-                    spaceBetween={10}
-                    slidesPerView={4}
-                    navigation
-                    breakpoints={{
-                        640: { slidesPerView: 2 },
-                        768: { slidesPerView: 3 },
-                        1024: { slidesPerView: 5 },
-                    }}
-                >
-
-                    {country.map((item, index) => (
-                        <SwiperSlide key={index}>
-                            <div className={styles.categoryitem}>
-                                <Link prefetch={true} href='/' className={styles.categorylink}>
-                                    <img src={item.img} alt={item.name} className={styles.categoryimage} />
-                                    <div className={styles.categorytext}>{item.name}</div>
-                                </Link>
-                            </div>
-                        </SwiperSlide>
-                    ))}
-                </Swiper>
-            </div>
-
-            {/* Алфавит для прокрутки */}
-            <div className={styles.alphabetContainer}>
-                {ukrainianAlphabet.split("").map((letter, index) => (
-                    <button
-                        key={index}
-                        className={styles.alphabetLetter}
-                        onClick={() => handleAlphabetClick(letter)}
+                <div className={styles.categorycontainer}>
+                    {/* Карусель стран */}
+                    <Swiper
+                        onSwiper={(swiper) => (swiperRef.current = swiper)} // Сохраняем объект Swiper
+                        modules={[Navigation]}
+                        spaceBetween={10}
+                        slidesPerView={4}
+                        navigation
+                        breakpoints={{
+                            640: { slidesPerView: 2 },
+                            768: { slidesPerView: 3 },
+                            1024: { slidesPerView: 5 },
+                        }}
                     >
-                        {letter}
-                    </button>
-                ))}
+
+                        {country.map((item, index) => (
+                            <SwiperSlide key={index}>
+                                <div className={styles.categoryitem}>
+                                    <Link prefetch={true} href='/' className={styles.categorylink}>
+                                        <img src={item.img} alt={item.name} className={styles.categoryimage} />
+                                        <div className={styles.categorytext}>{item.name}</div>
+                                    </Link>
+                                </div>
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
+                </div>
+
+                {/* Алфавит для прокрутки */}
+                <div className={styles.alphabetContainer}>
+                    {ukrainianAlphabet.split("").map((letter, index) => (
+                        <button
+                            key={index}
+                            className={styles.alphabetLetter}
+                            onClick={() => handleAlphabetClick(letter)}
+                        >
+                            {letter}
+                        </button>
+                    ))}
+                </div>
             </div>
-        </div>
-    );
-}
+        );
+    }
