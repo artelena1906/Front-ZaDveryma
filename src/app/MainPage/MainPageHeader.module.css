@@ -366,5 +366,10 @@
   transform: scale(1.1); /* Увеличение на 10% при наведении */
 }
 
+.noHighlight {
+  background-color: transparent !important; /* Убираем закрашивание */
+  color: inherit !important; /* Оставляем цвет текста по умолчанию */
+}
+
 
 
