@@ -103,27 +103,27 @@
       },
       {
         "id": 4,
-        "name": "Німеччина",
-        "img": "/img/country/Germany.jpg",
-        "alt": "Німеччина"
+        "name": "Греція",
+        "img": "/img/country/Greece.jpg",
+        "alt": "Греція"
       },
       {
         "id": 5,
-        "name": "Франція",
-        "img": "/img/country/France.jpg",
-        "alt": "Франція"
+        "name": "Ірландія",
+        "img": "/img/country/Ireland.jpg",
+        "alt": "Ірландія"
       },
       {
         "id": 6,
-        "name": "Нідерланди",
-        "img": "/img/country/Netherlands.jpg",
-        "alt": "Нідерланди"
+        "name": "Ісландія",
+        "img": "/img/country/Iceland.jpg",
+        "alt": "Ісландія"
       },
       {
         "id": 7,
-        "name": "Португалія",
-        "img": "/img/country/Portugal.jpg",
-        "alt": "Португалія"
+        "name": "Іспанія",
+        "img": "/img/country/Spain.jpg",
+        "alt": "Іспанія"
       },
       {
         "id": 8,
@@ -139,63 +139,63 @@
       },
       {
         "id": 10,
-        "name": "Ісландія",
-        "img": "/img/country/Iceland.jpg",
-        "alt": "Ісландія"
+        "name": "Нідерланди",
+        "img": "/img/country/Netherlands.jpg",
+        "alt": "Нідерланди"
       },
       {
         "id": 11,
-        "name": "Чорногорія",
-        "img": "/img/country/Montenegro.jpg",
-        "alt": "Чорногорія"
+        "name": "Німеччина",
+        "img": "/img/country/Germany.jpg",
+        "alt": "Німеччина"
       },
       {
         "id": 12,
-        "name": "Ірландія",
-        "img": "/img/country/Ireland.jpg",
-        "alt": "Ірландія"
-      },
-      {
-        "id": 13,
-        "name": "Іспанія",
-        "img": "/img/country/Spain.jpg",
-        "alt": "Іспанія"
-      },
-      {
-        "id": 14,
-        "name": "Швейцарія",
-        "img": "/img/country/Switzerland.jpg",
-        "alt": "Швейцарія"
-      },
-      {
-        "id": 15,
         "name": "Норвегія",
         "img": "/img/country/Norway.jpg",
         "alt": "Норвегія"
       },
       {
-        "id": 16,
-        "name": "Греція",
-        "img": "/img/country/Greece.jpg",
-        "alt": "Греція"
+        "id": 13,
+        "name": "Португалія",
+        "img": "/img/country/Portugal.jpg",
+        "alt": "Португалія"
       },
       {
-        "id": 17,
+        "id": 14,
         "name": "Туреччина",
         "img": "/img/country/Turkey.jpg",
         "alt": "Туреччина"
+      },    
+      {
+        "id": 15,
+        "name": "Франція",
+        "img": "/img/country/France.jpg",
+        "alt": "Франція"
       },
       {
-        "id": 18,
+        "id": 16,
         "name": "Хорватія",
         "img": "/img/country/Croatia.jpg",
         "alt": "Хорватія"
       },
       {
+        "id": 17,
+        "name": "Чорногорія",
+        "img": "/img/country/Montenegro.jpg",
+        "alt": "Чорногорія"
+      },
+      {
+        "id": 18,
+        "name": "Швейцарія",
+        "img": "/img/country/Switzerland.jpg",
+        "alt": "Швейцарія"
+      },
+      {
         "id": 19,
-        "name": "Китай",
-        "img": "/img/country/China.jpg",
-        "alt": "Китай"
+        "name": "Японія",
+        "img": "/img/country/Japan.jpg",
+        "alt": "Японія"
       }
     ]
   }

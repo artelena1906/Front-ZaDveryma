@@ -78,7 +78,7 @@ export default function Country() {
     };
 
     // Украинский алфавит
-    const ukrainianAlphabet = "АБВІКЛМНПРСТФХШЯ";
+    const ukrainianAlphabet = "АБВГІКМНПРСТФХЧШЯ";
 
     return (
         <div className={styles.container}>
