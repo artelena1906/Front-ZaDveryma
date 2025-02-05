@@ -1,15 +1,16 @@
 "use client";
 import { useState, useEffect } from "react";
 import styles from "./MainPageHeader.module.css";
+import Image from "next/image";
 
-interface Photo {
+interface Image {
   img: string;
   alt: string;
 }
 
 export default function Photo() {
 
-  const [photos, setPhotos] = useState<Photo[]>([]);
+  const [photos, setPhotos] = useState<Image[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
