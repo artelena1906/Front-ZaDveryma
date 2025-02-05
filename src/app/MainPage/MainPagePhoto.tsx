@@ -3,14 +3,14 @@ import { useState, useEffect } from "react";
 import styles from "./MainPageHeader.module.css";
 import Image from "next/image";
 
-interface Image {
+interface Photo {
   img: string;
   alt: string;
 }
 
 export default function Photo() {
 
-  const [photos, setPhotos] = useState<Image[]>([]);
+  const [photos, setPhotos] = useState<Photo[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
@@ -36,7 +36,7 @@ export default function Photo() {
       <h2 className={styles.h2}>Фото з наших подорожей</h2>
       <div className={styles.carouselTrack}>
         {visiblePhotos.map((photo, index) => (
-          <img key={index} src={photo.img} alt={photo.alt} className={styles.image} />
+          <Image key={index} src={photo.img} alt={photo.alt} className={styles.image} loading="lazy"/>
         ))}
       </div>
 
