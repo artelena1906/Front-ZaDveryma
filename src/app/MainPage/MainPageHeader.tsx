@@ -19,13 +19,14 @@ export default function Header() {
         { href: "#italy", text: "Ісландія" },
       ]
     },
-    { href: "#services", text: "Нові горизонти", 
+    { href: "#services", text: "Мрії", 
       subItems: [
-        { href: "#ukraine", text: "Україна" },
-        { href: "#france", text: "Франція" },
-        { href: "#italy", text: "Італія" },
-        { href: "#italy", text: "Португалія" },
-        { href: "#italy", text: "Ісландія" },
+        { href: "#ukraine", text: "Китай" },
+        { href: "#france", text: "Японія" },
+        { href: "#italy", text: "Нова Зеландія" },
+        { href: "#italy", text: "Вє'тнам" },
+        { href: "#italy", text: "Південна Америка" },
+        { href: "#italy", text: "Кенія" },
       ]
     },
     { href: "#blog", text: "Блог" },

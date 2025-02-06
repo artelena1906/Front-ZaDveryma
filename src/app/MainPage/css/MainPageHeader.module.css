@@ -33,17 +33,6 @@
   height: auto;
 }
 
-
-/*Стили для контейнера с меню*/
-/* .menu {
-  flex: 2;
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 10px;
-  margin-right: 1.0vw;
-  margin-left: auto;
-} */
-
 .menu {
   display: flex;
   justify-content: flex-end;
@@ -53,8 +42,11 @@
 
 .menuItem {
   position: relative;
-  /* display: inline-block; */
 
+}
+
+.menu a{
+  font-size: 16px;
 }
 
 /*Стили для кнопок меню */
@@ -95,7 +87,7 @@
   list-style-type: none;
   background-color: #F5F5DC;
   padding: 5px;
-  font-size: 14px;
+  /* font-size: 22px; */
   margin-top: 1px;
   border-radius: 10px;
   border: 2px solid #678F4E;
@@ -158,7 +150,7 @@
   }
 
   .menu a{
-    font-size: 14px;
+    font-size: 18px;
   }
 
   .menuItem {
@@ -194,7 +186,7 @@
   }
 
   .menu a{
-    font-size: 10px;
+    font-size: 16px;
   }
 
   .menuItem {
@@ -232,7 +224,7 @@
   }
 
   .menu a{
-    font-size: 11px;
+    font-size: 13px;
   }
 
   .menuItem {
