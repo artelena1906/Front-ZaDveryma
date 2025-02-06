@@ -2,83 +2,107 @@
   "bodyData": {
     "photo": [
       {
-        "img": "/img/karusel/img1.webp",
+        "img": "/img/karusel/1.jpg",
         "alt": "img1"
       },
       {
-        "img": "/img/karusel/img2.webp",
+        "img": "/img/karusel/2.jpg",
         "alt": "img2"
       },
       {
-        "img": "/img/karusel/img3.webp",
+        "img": "/img/karusel/3.jpg",
         "alt": "img3"
       },
       {
-        "img": "/img/karusel/img4.webp",
+        "img": "/img/karusel/4.jpg",
         "alt": "img4"
       },
       {
-        "img": "/img/karusel/img5.webp",
+        "img": "/img/karusel/5.jpg",
         "alt": "img5"
       },
       {
-        "img": "/img/karusel/img6.webp",
+        "img": "/img/karusel/6.jpg",
         "alt": "img6"
       },
       {
-        "img": "/img/karusel/img7.webp",
+        "img": "/img/karusel/7.jpg",
         "alt": "img7"
       },
       {
-        "img": "/img/karusel/img8.webp",
+        "img": "/img/karusel/8.jpg",
         "alt": "img8"
       },
       {
-        "img": "/img/karusel/img9.webp",
+        "img": "/img/karusel/9.jpg",
         "alt": "img9"
       },
       {
-        "img": "/img/karusel/img10.webp",
+        "img": "/img/karusel/10.jpg",
         "alt": "img10"
       },
       {
-        "img": "/img/karusel/img11.webp",
+        "img": "/img/karusel/11.jpg",
         "alt": "img11"
       },
       {
-        "img": "/img/karusel/img12.webp",
+        "img": "/img/karusel/12.jpg",
         "alt": "img12"
       },
       {
-        "img": "/img/karusel/img13.webp",
+        "img": "/img/karusel/13.jpg",
         "alt": "img13"
       },
       {
-        "img": "/img/karusel/img14.webp",
+        "img": "/img/karusel/14.jpg",
         "alt": "img14"
       },
       {
-        "img": "/img/karusel/img15.webp",
+        "img": "/img/karusel/15.jpg",
         "alt": "img15"
       },
       {
-        "img": "/img/karusel/img16.webp",
+        "img": "/img/karusel/16.jpg",
         "alt": "img16"
       },
       {
-        "img": "/img/karusel/img17.webp",
+        "img": "/img/karusel/17.jpg",
         "alt": "img17"
       },
       {
-        "img": "/img/karusel/img18.webp",
+        "img": "/img/karusel/18.jpg",
         "alt": "img18"
       },
       {
-        "img": "/img/karusel/img19.webp",
+        "img": "/img/karusel/19.jpg",
         "alt": "img19"
       },
       {
-        "img": "/img/karusel/img20.webp",
+        "img": "/img/karusel/20.jpg",
+        "alt": "img20"
+      },
+      {
+        "img": "/img/karusel/21.jpg",
+        "alt": "img20"
+      },
+      {
+        "img": "/img/karusel/22.jpg",
+        "alt": "img20"
+      },
+      {
+        "img": "/img/karusel/23.jpg",
+        "alt": "img20"
+      },
+      {
+        "img": "/img/karusel/24.jpg",
+        "alt": "img20"
+      },
+      {
+        "img": "/img/karusel/25.jpg",
+        "alt": "img20"
+      },
+      {
+        "img": "/img/karusel/26.jpg",
         "alt": "img20"
       }
     ],

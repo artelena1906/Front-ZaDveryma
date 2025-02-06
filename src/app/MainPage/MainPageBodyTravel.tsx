@@ -28,17 +28,7 @@ export default function Travel() {
     if (!mounted) return null; // Ждем монтирования компонента
 
     return (
-        <TableContainer
-            component={Paper}
-            sx={{
-                width: "calc(100% - 20px)",
-                maxWidth: "100%",
-                overflowX: "auto",
-                margin: "20px auto 0 auto",
-                border: "none",
-                boxShadow: "none",
-            }}
-        >
+        <div>
             <Typography
                 sx={{
                     fontSize: "30px",
@@ -53,42 +43,77 @@ export default function Travel() {
             >
                 Найближчі тури
             </Typography>
-            <Table
+            <TableContainer
+                component={Paper}
                 sx={{
-                    border: "1px solid gray", // Граница вокруг всей таблицы
-                    borderCollapse: "collapse" // Объединяет границы, чтобы не было двойных линий
+                    width: "calc(100% - 20px)",
+                    maxWidth: "100%",
+                    overflowX: "auto",
+                    margin: "20px auto 0 auto",
+                    borderRadius: "15px",
+                    boxShadow: "0 3px 6px rgba(54, 53, 53, 0.1)", // Тень для объема
+                    border: "1px solid rgba(173, 173, 173, 0.3)", // Внешняя рамка
                 }}
             >
-                <TableHead>
-                    <TableRow sx={{ backgroundColor: "#F5F5DC" }}>
-                        <TableCell sx={{ border: "1px solid gray" }}><strong>Дата</strong></TableCell>
-                        <TableCell sx={{ border: "1px solid gray" }}><strong>Назва туру</strong></TableCell>
-                        <TableCell sx={{ border: "1px solid gray" }}><strong>Наявність місць</strong></TableCell>
-                        <TableCell sx={{ border: "1px solid gray" }}><strong>Хто везе</strong></TableCell>
-                    </TableRow>
-                </TableHead>
-                <TableBody>
-                    {tours.map((item) => (
-                        <TableRow
-                            key={item.id}
-                            sx={{
-                                cursor: "pointer",
-                                transition: "background-color 0.2s",
-                                "&:hover": { backgroundColor: "#f0f0f0" }
-                            }}
-                            onClick={() => router.push(`/tour/${item.id}`)}
-                        >
-                            <TableCell sx={{ border: "1px solid gray" }}>{item.date}</TableCell>
-                            <TableCell sx={{ border: "1px solid gray" }}>
-                                <strong>{item.name}</strong>
-                                <Typography variant="body2" color="text.secondary">{item.description}</Typography>
-                            </TableCell>
-                            <TableCell sx={{ border: "1px solid gray" }}>{item.seats}</TableCell>
-                            <TableCell sx={{ border: "1px solid gray" }}>{item.provider}</TableCell>
+                <div style={{  overflow: "hidden", width: "100%" }}>
+                <Table
+                    sx={{
+                        tableLayout: "fixed", 
+                        width: "100%",
+                        borderCollapse: "collapse"
+                    }}
+                >
+                    <TableHead>
+                        <TableRow sx={{ backgroundColor: "#F5F5DC" }}>
+                            <TableCell sx={{ border: "1px solid rgba(128, 128, 128, 0.1)", textAlign: "center", width:"120px"}}><strong>Дата</strong></TableCell>
+                            <TableCell sx={{ border: "1px solid rgba(128, 128, 128, 0.1)", textAlign: "center", width:"600px" }}><strong>Назва туру</strong></TableCell>
+                            <TableCell sx={{ border: "1px solid rgba(128, 128, 128, 0.1)", textAlign: "center" }}><strong>Наявність місць</strong></TableCell>
+                            <TableCell sx={{ border: "1px solid rgba(128, 128, 128, 0.1)", textAlign: "center" }}><strong>Хто везе</strong></TableCell>
                         </TableRow>
-                    ))}
-                </TableBody>
-            </Table>
-        </TableContainer>
+                    </TableHead>
+                    <TableBody>
+                        {tours.map((item) => (
+                            <TableRow
+                                key={item.id}
+                                sx={{
+                                    cursor: "pointer",
+                                    transformOrigin: "center",
+                                    transition: "transform 0.3s ease-in-out",
+                                    "&:hover": {
+                                        backgroundColor: "#f0f0f0",
+                                        transform: "scaleY(1.1)", // Увеличение строки по обеим осям, но не слишком сильно
+                                        zIndex: 1, // Чтобы строка была сверху при эффекте}
+                                    },
+                                    overflow: "hidden",
+                                }}
+                                onClick={() => router.push(`/tour/${item.id}`)}
+                            >
+                                <TableCell
+                                    sx={{
+                                        border: "1px solid rgba(128, 128, 128, 0.2)"
+                                    }}
+                                >
+                                    {item.date}</TableCell>
+                                <TableCell
+                                    sx={{
+                                        border: "1px solid rgba(128, 128, 128, 0.2)",
+                                        color: "#556B2F",
+                                        // fontSize: "20px"
+                                    }}
+                                >
+                                    <strong style={{ fontFamily: "Playwrite India", fontStyle: "italic", fontWeight: "bold", fontSize: "22px" }}>
+                                        {item.name}
+                                    </strong>
+                                    <Typography variant="body2" color="text.secondary">{item.description}</Typography>
+                                </TableCell>
+                                <TableCell sx={{ border: "1px solid rgba(128, 128, 128, 0.2)" }}>{item.seats}</TableCell>
+                                <TableCell sx={{ border: "1px solid rgba(128, 128, 128, 0.2)" }}>{item.provider}</TableCell>
+                            </TableRow>
+                        ))}
+                    </TableBody>
+                </Table>
+                </div>
+            </TableContainer>
+        </div>
     );
 }

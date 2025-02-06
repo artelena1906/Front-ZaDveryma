@@ -17,7 +17,7 @@ export default function Photo() {
     fetch("/MainPageHeader.json")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);  
+        console.log(data);
         setPhotos(data.bodyData.photo);
       })
       .catch((error) => console.error("Ошибка загрузки данных:", error));
@@ -27,30 +27,39 @@ export default function Photo() {
 
   const handleDotClick = (index: number) => {
     setCurrentIndex(index);
-    
+
   };
 
   return (
     <>
-    <div className={styles.carousel}>
-      <h2 className={styles.h2}>Фото з наших подорожей</h2>
-      <div className={styles.carouselTrack}>
-        {visiblePhotos.map((photo, index) => (
-          <Image key={index} src={photo.img} alt={photo.alt} className={styles.image} loading="lazy"/>
-        ))}
-      </div>
+      <div className={styles.carousel}>
+        <h2 className={styles.h2}>Фото з наших подорожей</h2>
+        <div className={styles.carouselTrack}>
+          {visiblePhotos.map((photo, index) => (
+            <Image
+              key={index}
+              src={photo.img}
+              alt={photo.alt}
+              className={styles.image}
+              loading="lazy"
+              // style={{ width: "260px", height: "150px" }}
+              width={260}
+              height={150}
+            />
+          ))}
+        </div>
 
-      <div className={styles.dots}>
-        {photos.slice(0, photos.length - 4).map((_, index) => (
-          <span
-            key={index}
-            className={`${styles.dot} ${index === currentIndex ? styles.active : ""}`}
-            onClick={() => handleDotClick(index)}
-          ></span>
-        ))}
+        <div className={styles.dots}>
+          {photos.slice(0, photos.length - 4).map((_, index) => (
+            <span
+              key={index}
+              className={`${styles.dot} ${index === currentIndex ? styles.active : ""}`}
+              onClick={() => handleDotClick(index)}
+            ></span>
+          ))}
+        </div>
       </div>
-    </div>
-    <hr className={styles.h}></hr>
+      <hr className={styles.h}></hr>
     </>
   );
 }
