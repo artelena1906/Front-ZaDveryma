@@ -13,6 +13,7 @@
 .swiper-button-prev {
   color: white !important;
   font-weight: bold !important;
+  /* margin-left:20px !important; */
 }
 
 .swiper-button-next::after,
@@ -20,6 +21,7 @@
   font-size: 50px !important;
   font-weight: bolder !important;
   color: white !important;
+  /* margin-right:20px !important; */
 }
 }
 

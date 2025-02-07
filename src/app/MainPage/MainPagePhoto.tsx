@@ -1,17 +1,19 @@
 "use client";
 import { useState, useEffect } from "react";
-import styles from "./MainPageHeader.module.css";
+import styles from "./css/MainPagePhoto.module.css";
 import Image from "next/image";
-
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import { Navigation } from "swiper/modules";
 interface Photo {
   img: string;
   alt: string;
 }
 
 export default function Photo() {
-
   const [photos, setPhotos] = useState<Photo[]>([]);
-  const [currentIndex, setCurrentIndex] = useState(0);
+
 
   useEffect(() => {
     fetch("/MainPageHeader.json")
@@ -23,41 +25,36 @@ export default function Photo() {
       .catch((error) => console.error("Ошибка загрузки данных:", error));
   }, []);
 
-  const visiblePhotos = photos.slice(currentIndex, currentIndex + 5);
-
-  const handleDotClick = (index: number) => {
-    setCurrentIndex(index);
-
-  };
-
   return (
     <>
       <div className={styles.carousel}>
-        <h2 className={styles.h2}>Фото з наших подорожей</h2>
-        <div className={styles.carouselTrack}>
-          {visiblePhotos.map((photo, index) => (
-            <Image
-              key={index}
-              src={photo.img}
-              alt={photo.alt}
-              className={styles.image}
-              loading="lazy"
-              // style={{ width: "260px", height: "150px" }}
-              width={260}
-              height={150}
-            />
+        {/* <h2 className={styles.h2}>Фото з наших подорожей</h2> */}
+        <Swiper
+          modules={[Navigation]}
+          navigation
+          slidesPerView={4}
+          slidesOffsetBefore={15} // Отступ слева
+          pagination={{ clickable: true }}
+          breakpoints={{
+            500: { slidesPerView: 1 },
+            800: { slidesPerView: 2 }, // Планшеты
+            1024: { slidesPerView: 3 }, // Небольшие десктопы
+            1200: { slidesPerView: 5 }, // Широкие экраны
+          }}
+        >
+          {photos.map((photo, index) => (
+            <SwiperSlide key={index} className={styles.carouselTrack}>
+              <Image
+                src={photo.img}
+                alt={photo.alt}
+                className={styles.image}
+                loading="lazy"
+                width={260}
+                height={150}
+              />
+            </SwiperSlide>
           ))}
-        </div>
-
-        <div className={styles.dots}>
-          {photos.slice(0, photos.length - 4).map((_, index) => (
-            <span
-              key={index}
-              className={`${styles.dot} ${index === currentIndex ? styles.active : ""}`}
-              onClick={() => handleDotClick(index)}
-            ></span>
-          ))}
-        </div>
+        </Swiper>
       </div>
       <hr className={styles.h}></hr>
     </>

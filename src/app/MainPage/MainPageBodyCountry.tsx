@@ -51,8 +51,7 @@ export default function Country() {
                     onSwiper={(swiper) => (swiperRef.current = swiper)} // Сохраняем объект Swiper
                     modules={[Navigation]}
                     spaceBetween={10}
-                    slidesPerView={4}
-                    navigation
+                    // navigation
                     breakpoints={{
                         640: { slidesPerView: 2 },
                         768: { slidesPerView: 3 },
@@ -65,7 +64,6 @@ export default function Country() {
                             <div className={styles.categoryitem}>
                                 <Link prefetch={true} href='/' className={styles.categorylink}>
                                     <Image src={item.img} alt={item.name} className={styles.categoryimage} loading="lazy"
-                                        // style={{ width: "180px", height: "180px" }}
                                         width={180}
                                         height={180}
                                     />

@@ -21,15 +21,16 @@
 
 /*Стили для картинки лого */
 .Logophoto {
-  max-width: 150px;
+  max-width: 100px;
   height: auto;
   margin-left: 30px;
 }
 
 /*Стили для названия компании */
 .Logo {
-  min-width: 150px;
-  max-width: 250px;
+  min-width: 100px;
+  max-width: 200px;
+  margin-left: 10px;
   height: auto;
 }
 
@@ -66,12 +67,6 @@
   font-size: 14px;
   padding: 10px;
 }
-/* 
-.menu a {
-  display: block;
-  text-align: center;
-  padding: 10px;
-} */
 
 .menubtn:hover {
   background-color: #678F4E;
@@ -87,6 +82,7 @@
   list-style-type: none;
   background-color: #F5F5DC;
   padding: 5px;
+  z-index: 5;
   /* font-size: 22px; */
   margin-top: 1px;
   border-radius: 10px;
