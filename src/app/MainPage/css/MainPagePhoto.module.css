@@ -32,14 +32,6 @@
   scroll-snap-type: x mandatory;
 }
 
-:global(.swiper-button-prev) {
-  margin-left: 20px !important;
-}
-
-:global(.swiper-button-next) {
-  margin-right: 20px !important;
-}
-
 .image {
   transition: transform 0.3s ease-in-out; /* Плавное увеличение */
   border-radius: 12px; /* Закругление углов */
