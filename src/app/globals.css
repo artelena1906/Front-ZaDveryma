@@ -32,6 +32,13 @@
   }
 }
 
+@media (max-width: 520px) {
+  .swiper-button-next,
+  .swiper-button-prev {
+    display: none !important;
+  }
+}
+
 body {
   color: var(--foreground);
   background: var(--background);

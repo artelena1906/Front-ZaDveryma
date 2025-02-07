@@ -32,15 +32,32 @@ export default function Photo() {
         <Swiper
           modules={[Navigation]}
           navigation
-          slidesPerView={4}
-          slidesOffsetBefore={15} // Отступ слева
+          // slidesPerView={4}
+          // slidesOffsetBefore={15} // Отступ слева
           pagination={{ clickable: true }}
           breakpoints={{
-            500: { slidesPerView: 1 },
-            800: { slidesPerView: 2 }, // Планшеты
-            1024: { slidesPerView: 3 }, // Небольшие десктопы
-            1200: { slidesPerView: 5 }, // Широкие экраны
+            200: {
+              slidesPerView: 2,
+              spaceBetween: 5, // Уменьшаем отступ для маленьких экранов
+            },
+            520: {
+              slidesPerView: 2,
+              spaceBetween: 5, // Отступ для экранов средней ширины
+            },
+            800: {
+              slidesPerView: 3,
+              spaceBetween: 10, // Отступ для планшетов
+            },
+            1050: {
+              slidesPerView: 4,
+              spaceBetween: 10, // Отступ для небольших десктопов
+            },
+            1350: {
+              slidesPerView: 5,
+              spaceBetween: 15, // Отступ для широких экранов
+            },
           }}
+          className={styles.carouselTrack}
         >
           {photos.map((photo, index) => (
             <SwiperSlide key={index} className={styles.carouselTrack}>
