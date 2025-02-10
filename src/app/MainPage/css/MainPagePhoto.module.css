@@ -1,11 +1,14 @@
 .h2 {
   font-size: 28px;
   font-weight: bold;
-  padding: 10px 0 10px 0;
+  padding: 10px 0 0 0;
   font-family: Playwrite India;
   color: #556B2F;
   font-style: italic;
   font-weight: bold;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .h {
@@ -15,27 +18,40 @@
   border: none;
 }
 
-.carousel {
+.container {
   display: flex;
   background-color: #F5F5DC;
+  flex-direction: column;
+  
+}
+
+ .carouselcontainer {
+  display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  width: 100%;
-  height: 200px;
-  overflow: hidden;
+  gap: 10px;
+  /* width: 95%; */
+  /* overflow: hidden; */
+  margin: 20px;
+  scroll-snap-type: x mandatory; 
 }
 
 .carouselTrack {
   display: flex;
-  overflow: hidden; /* Обрезает части изображения, выходящие за границы */
+  /* overflow: hidden;  */
   border-radius: 12px; /* Должен совпадать с border-radius у изображения */
   scroll-snap-type: x mandatory;
+  align-items: center;
+  /* gap: 10px; */
+  justify-content: center;
+  text-align: center;
 }
 
 .image {
   transition: transform 0.3s ease-in-out; /* Плавное увеличение */
   border-radius: 12px; /* Закругление углов */
+  display: inline !important;
 }
 
 .image:hover {
@@ -47,20 +63,12 @@
     width: 240px !important;
     height: 130px !important;
   }
-
-  .carousel {
-    height: 170px;
-  }
 }
 
 @media (max-width: 480px) {
   .image {
     width: 230px !important;
     height: 120px !important;
-  }
-
-  .carousel {
-    height: 160px;
   }
 }
 
@@ -70,15 +78,20 @@
     height: 110px !important;
   }
 
-  .carousel {
-    height: 140px;
+  .carouselcontainer {
+    margin: 10px;
   }
+
 }
 
-@media (max-width: 400px) {
+@media (max-width: 420px) {
   .image {
-    width: 210px !important;
-    height: 100px !important;
+    width: 260px !important;
+    height: 150px !important;
+  }
+
+  .carouselcontainer {
+    margin: 10px;
   }
 }
 

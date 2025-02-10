@@ -3,8 +3,6 @@
 @tailwind utilities;
 
 :root {
-  /* --background: #FFE4C4; */
-  /* --background: #A7C796; */
   --swiper-navigation-color: white !important; /* Белые стрелки */
   --background: white;
   --foreground: bkack;
@@ -13,7 +11,7 @@
 .swiper-button-prev {
   color: white !important;
   font-weight: bold !important;
-  margin-left:20px !important;
+  margin-left: 10px !important;
 }
 
 .swiper-button-next::after,
@@ -21,7 +19,7 @@
   font-size: 50px !important;
   font-weight: bolder !important;
   color: white !important;
-  margin-right:20px !important;
+  margin-right: 10px !important;
 }
 }
 
