@@ -1,0 +1,23 @@
+{
+  "bodyData": {
+    "news": [
+      {
+        "title": "Новость 1",
+        "img": "/img/karusel/1.jpg",
+        "alt": "img1"
+      },
+      {
+        "img": "/img/karusel/2.jpg",
+        "alt": "img2"
+      },
+      {
+        "img": "/img/karusel/3.jpg",
+        "alt": "img3"
+      },
+      {
+        "img": "/img/karusel/4.jpg",
+        "alt": "img4"
+      }
+    ]
+     }
+}

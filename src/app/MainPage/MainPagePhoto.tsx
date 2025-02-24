@@ -27,7 +27,7 @@ export default function Photo() {
   return (
     <>
       <div className={styles.container}>
-        <h2 className={styles.h2}>Фотогалерея</h2>
+        {/* <h2 className={styles.h2}>Фотогалерея</h2> */}
         <div className={styles.carouselcontainer}>
           <Swiper
             modules={[Navigation]}

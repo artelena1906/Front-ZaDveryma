@@ -9,8 +9,9 @@ export default function Home() {
   return (
     <>
       <MainPageHeader />
+      <MainPageSearch/> 
       <MainPagePhoto/>
-      <MainPageSearch/>
+      {/* <MainPageSearch/> */}
       <MainPageBody/>
     </>
   );

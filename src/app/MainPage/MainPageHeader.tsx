@@ -39,7 +39,7 @@ export default function Header() {
     <div className={styles.containerHeader}>
       <Link prefetch={true} href="/">
         <div className={styles.logoContainer}>
-          <img src="img/Logo.png" alt="banner" className={styles.Logophoto} />
+          {/* <img src="img/Logo.png" alt="banner" className={styles.Logophoto} /> */}
           <img src="img/Zadveryma.png" alt="banner" className={styles.Logo} />
         </div>
       </Link>
