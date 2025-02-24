@@ -70,9 +70,9 @@
 
 .menubtn:hover {
   background-color: #678F4E;
-  color: white;
+  color: #F5F5DC;
   transform: translateY(-2px);
-  border: 2px solid white;
+  border: 2px solid #F5F5DC;
 }
 
 .dropdown {
@@ -83,7 +83,6 @@
   background-color: #F5F5DC;
   padding: 5px;
   z-index: 5;
-  /* font-size: 22px; */
   margin-top: 1px;
   border-radius: 10px;
   border: 2px solid #678F4E;
@@ -100,9 +99,8 @@
 .dropdown li a {
   text-decoration: none;
   color: #678F4E;
-  font-weight: bold;
   padding: 5px;
-  line-height: 2;  /* Минимальное расстояние между строками */
+  line-height: 1.5;  /* Минимальное расстояние между строками */
 }
 
 .dropdown li a:hover {

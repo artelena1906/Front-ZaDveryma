@@ -3,24 +3,31 @@
 @tailwind utilities;
 
 :root {
-  --swiper-navigation-color: white !important; /* Белые стрелки */
+  --swiper-navigation-color: white !important;
+  /* Белые стрелки */
   --background: white;
   --foreground: bkack;
 
   .swiper-button-next,
-.swiper-button-prev {
-  color: white !important;
-  font-weight: bold !important;
-  margin-left: 10px !important;
-}
+  .swiper-button-prev {
+    color: white !important;
+    font-weight: bold !important;
+    margin-left: 10px !important;
+  }
 
-.swiper-button-next::after,
-.swiper-button-prev::after {
-  font-size: 50px !important;
-  font-weight: bolder !important;
-  color: white !important;
-  margin-right: 10px !important;
-}
+  .swiper-button-next::after,
+  .swiper-button-prev::after {
+    font-size: 50px !important;
+    font-weight: bolder !important;
+    color: white !important;
+    margin-right: 10px !important;
+  }
+
+  .custom-calendar-label {
+    font-size: 20px;
+    font-weight: bold;
+    color: #678F4E;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -30,12 +37,58 @@
   }
 }
 
+@media (max-width: 1500px) {
+  .customCalendar {
+    width: 310px !important;
+    /* font-size: 12px; */
+  }
+}
+
+@media (max-width: 1300px) {
+  .customCalendar {
+    width: 270px !important;
+    font-size: 14px;
+  }
+
+  .custom-calendar-label {
+    font-size: 16px !important;
+  }
+}
+
+/* @media (max-width: 1300px) {
+  .custom-calendar-label {
+    font-size: 16px !important;
+  }
+} */
+
+@media (max-width: 1100px) {
+  .customCalendar {
+    width: 220px !important;
+    font-size: 12px;
+    line-height: 0.5 !important;
+  }
+
+  .custom-calendar-label {
+    font-size: 6px !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .customCalendar {
+    width: 180px !important;
+    font-size: 11px;
+  }
+}
+
 @media (max-width: 520px) {
+
   .swiper-button-next,
   .swiper-button-prev {
     display: none !important;
   }
 }
+
+
 
 body {
   color: var(--foreground);

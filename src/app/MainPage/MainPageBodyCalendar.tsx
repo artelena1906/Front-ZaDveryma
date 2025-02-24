@@ -1,66 +1,3 @@
-// import { useState } from "react";
-// import Calendar from "react-calendar";
-// import styles from "./MainPageHeader.module.css";
-// import "react-calendar/dist/Calendar.css";
-// import dayjs from "dayjs";
-// import 'dayjs/locale/uk'; // Импорт локали
-// import { uk } from 'date-fns/locale';
-
-// dayjs.locale('uk'); // Установка локали
-
-// export default function CalendarComponent() {
-//     const [date, setDate] = useState<Date | null>(new Date()); // Разрешаем значение null
-//     const [isMonthPickerOpen, setIsMonthPickerOpen] = useState(false);
-
-//     const handleMonthChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-//         const selectedMonth = parseInt(event.target.value, 10);
-//         const newDate = new Date(date?.getFullYear() || new Date().getFullYear(), selectedMonth, 1);
-//         setDate(newDate);
-//         setIsMonthPickerOpen(false);
-//     };
-
-//     // Функция для обработки выбора даты на календаре
-//     const handleDateChange = (newDate: Date | null) => {
-//         setDate(newDate); // Позволяет принимать null
-//     };
-
-//     return (
-//         <div className={styles.calendar}>
-//             {/* Заголовок с селектором */}           
-//                 <button onClick={() => setIsMonthPickerOpen(!isMonthPickerOpen)}>
-//                     📅 Вибрати місяць
-//                 </button>
-
-//             {/* Список месяцев */}
-//             {isMonthPickerOpen && (
-//                 <select onChange={handleMonthChange} value={date?.getMonth() || 0}>
-//                     {Array.from({ length: 12 }, (_, i) => (
-//                         <option key={i} value={i}>
-//                             {dayjs().month(i).format("MMMM")}
-//                         </option>
-//                     ))}
-//                 </select>
-//             )}
-
-//             {/* Календарь */}
-//             <Calendar
-//                 onChange={handleDateChange} // Передаем handleDateChange
-//                 value={date}
-//                 view="month"
-//                 locale="uk"
-//                 navigationLabel={({ date }) => (
-//                     <span style={{ color: "green", fontWeight: "bold", fontSize:"20px" }}>
-//                       {dayjs(date).format("MMMM YYYY")}
-//                     </span>
-//                      )}
-//                     tileClassName={({ date: calendarDate }) =>
-//                         dayjs(calendarDate).isSame(dayjs(), "day") ? styles.today : ""
-//                       }
-//             />
-//         </div>
-//     );
-// }
-
 "use client";
 import { useState } from "react";
 import Calendar, { CalendarProps } from "react-calendar";
@@ -115,13 +52,13 @@ export default function CalendarComponent() {
                 </select>
             )}
 
-            <Calendar
+            <Calendar className="customCalendar"
                 onChange={handleDateChange}
                 value={new Date(date)} // Преобразуем обратно в Date перед передачей в компонент
                 view="month"
                 locale="uk"
                 navigationLabel={({ date }) => (
-                    <span style={{ color: "green", fontWeight: "bold", fontSize: "20px" }}>
+                    <span className="custom-calendar-label">
                         {dayjs(date).format("MMMM YYYY")}
                     </span>
                 )}
