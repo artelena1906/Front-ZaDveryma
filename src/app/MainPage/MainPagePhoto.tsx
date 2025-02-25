@@ -26,6 +26,7 @@ export default function Photo() {
 
   return (
     <>
+    <hr className={styles.h}></hr>
       <div className={styles.container}>
         {/* <h2 className={styles.h2}>Фотогалерея</h2> */}
         <div className={styles.carouselcontainer}>

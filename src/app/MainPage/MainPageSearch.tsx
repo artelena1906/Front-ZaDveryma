@@ -293,7 +293,7 @@ export default function Search() {
                 </button>
             </div>
         </div>
-        <hr className={styles.h}></hr>
+        {/* <hr className={styles.h}></hr> */}
         </>
     );
 }

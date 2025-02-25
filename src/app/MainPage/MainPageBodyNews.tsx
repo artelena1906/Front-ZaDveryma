@@ -1,25 +1,40 @@
-import React from "react";
-import styles from "./MainPageHeader.module.css";
+"use client";
+import { useState, useEffect } from "react";
+import styles from "./css/MainPageBodyNews.module.css";
 
 export default function News() {
+    interface News {
+        id: number;
+        title: string;
+        description: string;
+        url: string;
+    }
+
+const [news, setNews] = useState<News[]>([]);
+
+  useEffect(() => {
+    fetch("/MainPageNews.json")
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setNews(data.bodyData.news);
+      })
+      .catch((error) => console.error("Ошибка загрузки данных:", error));
+  }, []);
+
+
   return (
-    <div className={styles.news}>
-                <h3>Новини</h3>
-                <div className={styles.newsitem}>
-                    <h4>Заголовок новости 1</h4>
-                    <p>Краткое описание новости. Подробнее о событии можно прочитать на нашем блоге.</p>
-                    <a href="#">Читать далее</a>
+    <div>
+        <h3 className={styles.h3}>Новини</h3>
+        <div className={styles.news}>
+            {news.map((item, index) => (
+                <div className={styles.newsitem} key={index}>
+                    <h4>{item.title}</h4>
+                    <p>{item.description}</p>
+                    <a style={{ display: "block", textAlign: "right" }} href={item.url}>Читати далі ...</a>
                 </div>
-                <div className={styles.newsitem}>
-                    <h4>Заголовок новости 2</h4>
-                    <p>Краткое описание новости. Подробнее о событии можно прочитать на нашем блоге.</p>
-                    <a href="#">Читать далее</a>
-                </div>
-                <div className={styles.newsitem}>
-                    <h4>Заголовок новости 3</h4>
-                    <p>Краткое описание новости. Подробнее о событии можно прочитать на нашем блоге.</p>
-                    <a href="#">Читать далее</a>
-                </div>
-            </div>
-  );
+            ))}
+        </div>
+    </div>
+);
 }
