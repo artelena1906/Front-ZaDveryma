@@ -8,6 +8,7 @@ export default function Travel() {
         id: string; // Добавим id для корректной работы с ключами и навигацией
         date: string;
         name: string;
+        sity: string;
         description: string;
         seats: number;
         provider: string;
@@ -101,10 +102,11 @@ export default function Travel() {
                                         // fontSize: "20px"
                                     }}
                                 >
-                                    <strong style={{ fontFamily: "Playwrite India", fontStyle: "italic", fontWeight: "bold", fontSize: "22px" }}>
+                                    <strong style={{ fontFamily: "Playwrite India", fontStyle: "italic", fontWeight: "bold", fontSize: "24px" }}>
                                         {item.name}
                                     </strong>
-                                    <Typography variant="body2" color="text.secondary">{item.description}</Typography>
+                                    <Typography variant="body2" color="gray" style={{fontSize: "14px", margin:"10px 0 10px 0"}}>{item.sity}</Typography>
+                                    <Typography variant="body2" color="black">{item.description}</Typography>
                                 </TableCell>
                                 <TableCell sx={{ border: "1px solid rgba(128, 128, 128, 0.2)" }}>{item.seats}</TableCell>
                                 <TableCell sx={{ border: "1px solid rgba(128, 128, 128, 0.2)" }}>{item.provider}</TableCell>
