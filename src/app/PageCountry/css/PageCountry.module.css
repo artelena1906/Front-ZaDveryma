@@ -1,0 +1,55 @@
+.conteiner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 50px 20px 50px;
+}
+
+.categorycontainer {
+    margin: 0 20px 0 20px;
+    padding: 10px;
+}
+
+.imageWrapper {
+    position: relative;
+}
+
+.categoryimage {
+    width: 180px;
+    height: 180px;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.categorytext {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    color: white;
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.categorycontainer:hover .categoryimage {
+    transform: scale(1.1);
+}
+
+.categorylink {
+    text-decoration: none;
+    color: inherit;
+}
+
+.h2Country {
+    margin-top: 20px;
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+    padding: 0 0 10px 0;
+    font-family: Playwrite India;
+    color: #556B2F;
+    font-style: italic;
+    font-weight: bold;
+  }

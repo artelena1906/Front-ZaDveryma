@@ -8,7 +8,7 @@ export default function Header() {
 
   //Меню на главной странице
   const menuItems = [
-    { href: "#home", text: "Головна" },
+    { href: "/", text: "Головна" },
     {
       href: "#travel", text: "Тури",
       subItems: [

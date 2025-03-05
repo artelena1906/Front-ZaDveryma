@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import MainPageHeader from "./MainPage/MainPageHeader"; // Імпорт хедера
+import MainPageFooter from "./MainPage/MainPageFooter"; // Імпорт футера
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,7 +29,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <MainPageHeader /> {/* Хедер на всіх сторінках */}
+        <main>{children}</main> {/* Вміст сторінок */}
+        <MainPageFooter /> {/* Футер на всіх сторінках */}
       </body>
     </html>
   );
