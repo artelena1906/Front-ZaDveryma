@@ -35,8 +35,8 @@ export default function PageCountry() {
                                 alt={item.name}
                                 className={styles.categoryimage}
                                 loading="lazy"
-                                width={180}
-                                height={180}
+                                width={200}
+                                height={200}
                             />
                             <div className={styles.categorytext}>{item.name}</div>
                         </div>

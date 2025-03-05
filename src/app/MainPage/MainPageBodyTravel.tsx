@@ -69,7 +69,7 @@ export default function Travel() {
                             <TableCell sx={{ border: "1px solid rgba(128, 128, 128, 0.1)", textAlign: "center", width:"120px"}}><strong>Дата</strong></TableCell>
                             <TableCell sx={{ border: "1px solid rgba(128, 128, 128, 0.1)", textAlign: "center", width:"600px" }}><strong>Назва туру</strong></TableCell>
                             <TableCell sx={{ border: "1px solid rgba(128, 128, 128, 0.1)", textAlign: "center" }}><strong>Наявність місць</strong></TableCell>
-                            <TableCell sx={{ border: "1px solid rgba(128, 128, 128, 0.1)", textAlign: "center" }}><strong>Хто везе</strong></TableCell>
+                            <TableCell sx={{ border: "1px solid rgba(128, 128, 128, 0.1)", textAlign: "center" }}><strong>Організатор</strong></TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
