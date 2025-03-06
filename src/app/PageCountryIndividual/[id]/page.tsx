@@ -88,11 +88,11 @@ export default function PageCountryIndividual() {
                 <Image
                     src={countryData.imgmap}
                     alt={countryData.alt}
-                    width={400}
+                    width={200}
                     height={200}
                     className={styles.mapImage}
-                    onClick={handleImageClick} 
-                    style={{ cursor: "pointer" }} 
+                    onClick={handleImageClick}
+                    style={{ cursor: "pointer" }}
                 />
                 {countryData.text && countryData.text.length > 0 && (
                     <p className={styles.introDescription}>
@@ -132,7 +132,7 @@ export default function PageCountryIndividual() {
                         <Image
                             src={countryData.imgmap}
                             alt={countryData.alt}
-                            width={800} // Збільшений розмір для модального вікна
+                            width={800}
                             height={800}
                             className={styles.modalImage}
                         />
@@ -143,7 +143,7 @@ export default function PageCountryIndividual() {
                 </div>
             )}
 
-            {/* Решта коду з таблицею турів */}
+            {/* Таблиця турів */}
             <div className={styles.containertour}>
                 {tours.length > 0 ? (
                     <>
@@ -159,8 +159,75 @@ export default function PageCountryIndividual() {
                         >
                             Тури
                         </Typography>
-                        <TableContainer component={Paper}>
-                            {/* Таблиця турів */}
+                        <TableContainer
+                            component={Paper}
+                            sx={{
+                                width: "calc(100% - 20px)",
+                                maxWidth: "100%",
+                                overflowX: "auto",
+                                margin: "20px auto 20px auto",
+                                borderRadius: "15px",
+                                boxShadow: "0 3px 6px rgba(54, 53, 53, 0.1)",
+                                border: "1px solid rgba(173, 173, 173, 0.3)",
+                            }}
+                        >
+                            <Table sx={{ tableLayout: "fixed", width: "100%", borderCollapse: "collapse" }}>
+                                <TableHead sx={{ height: "50px" }}>
+                                    <TableRow sx={{ backgroundColor: "#F5F5DC" }}>
+                                        <TableCell sx={{ border: "1px solid rgba(128, 128, 128, 0.1)", textAlign: "center", width: "120px" }}>
+                                            <strong>Дата</strong>
+                                        </TableCell>
+                                        <TableCell sx={{ border: "1px solid rgba(128, 128, 128, 0.1)", textAlign: "center", width: "800px" }}>
+                                            <strong>Назва туру</strong>
+                                        </TableCell>
+                                        <TableCell sx={{ border: "1px solid rgba(128, 128, 128, 0.1)", textAlign: "center" }}>
+                                            <strong>Наявність місць</strong>
+                                        </TableCell>
+                                        <TableCell sx={{ border: "1px solid rgba(128, 128, 128, 0.1)", textAlign: "center" }}>
+                                            <strong>Організатор</strong>
+                                        </TableCell>
+                                    </TableRow>
+                                </TableHead>
+                                <TableBody>
+                                    {tours.map((item) => (
+                                        <TableRow
+                                            key={item.id}
+                                            sx={{
+                                                cursor: "pointer",
+                                                transformOrigin: "center",
+                                                transition: "transform 0.3s ease-in-out",
+                                                "&:hover": {
+                                                    backgroundColor: "#f0f0f0",
+                                                    transform: "scaleY(1.1)",
+                                                    zIndex: 1,
+                                                },
+                                                overflow: "hidden",
+                                            }}
+                                        >
+                                            <TableCell sx={{ border: "1px solid rgba(128, 128, 128, 0.2)" }}>
+                                                {item.date}
+                                            </TableCell>
+                                            <TableCell sx={{ border: "1px solid rgba(128, 128, 128, 0.2)", color: "#556B2F" }}>
+                                                <strong style={{ fontFamily: "Playwrite India", fontStyle: "italic", fontWeight: "bold", fontSize: "22px" }}>
+                                                    {item.name}
+                                                </strong>
+                                                <Typography variant="body2" color="gray" style={{ fontSize: "12px", margin: "5px 0 5px 0" }}>
+                                                    {item.sity}
+                                                </Typography>
+                                                <Typography variant="body2" color="black">
+                                                    {item.description}
+                                                </Typography>
+                                            </TableCell>
+                                            <TableCell sx={{ border: "1px solid rgba(128, 128, 128, 0.2)", textAlign: "center" }}>
+                                                {item.seats}
+                                            </TableCell>
+                                            <TableCell sx={{ border: "1px solid rgba(128, 128, 128, 0.2)", textAlign: "center" }}>
+                                                {item.provider}
+                                            </TableCell>
+                                        </TableRow>
+                                    ))}
+                                </TableBody>
+                            </Table>
                         </TableContainer>
                     </>
                 ) : (
@@ -174,7 +241,7 @@ export default function PageCountryIndividual() {
                             fontStyle: "italic",
                         }}
                     >
-                        За даним направленням тури в розробці
+                        За даним направленням турів не має
                     </Typography>
                 )}
             </div>
