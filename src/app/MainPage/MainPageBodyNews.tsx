@@ -31,7 +31,7 @@ const [news, setNews] = useState<News[]>([]);
                 <div className={styles.newsitem} key={index}>
                     <h4>{item.title}</h4>
                     <p>{item.description}</p>
-                    <a style={{ display: "block", textAlign: "right" }} href={item.url}>Читати далі ...</a>
+                    <a style={{ display: "block", textAlign: "right", fontStyle: "italic"}} href={item.url}>Читати далі ...</a>
                 </div>
             ))}
         </div>

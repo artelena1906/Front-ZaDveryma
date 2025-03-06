@@ -64,8 +64,8 @@ export default function Travel() {
                         borderCollapse: "collapse"
                     }}
                 >
-                    <TableHead>
-                        <TableRow sx={{ backgroundColor: "#F5F5DC" }}>
+                    <TableHead sx={{ height: "50px" }}>
+                        <TableRow sx={{ backgroundColor: "#F5F5DC"}}>
                             <TableCell sx={{ border: "1px solid rgba(128, 128, 128, 0.1)", textAlign: "center", width:"120px"}}><strong>Дата</strong></TableCell>
                             <TableCell sx={{ border: "1px solid rgba(128, 128, 128, 0.1)", textAlign: "center", width:"600px" }}><strong>Назва туру</strong></TableCell>
                             <TableCell sx={{ border: "1px solid rgba(128, 128, 128, 0.1)", textAlign: "center" }}><strong>Наявність місць</strong></TableCell>
@@ -99,13 +99,12 @@ export default function Travel() {
                                     sx={{
                                         border: "1px solid rgba(128, 128, 128, 0.2)",
                                         color: "#556B2F",
-                                        // fontSize: "20px"
                                     }}
                                 >
-                                    <strong style={{ fontFamily: "Playwrite India", fontStyle: "italic", fontWeight: "bold", fontSize: "24px" }}>
+                                    <strong style={{ fontFamily: "Playwrite India", fontStyle: "italic", fontWeight: "bold", fontSize: "22px" }}>
                                         {item.name}
                                     </strong>
-                                    <Typography variant="body2" color="gray" style={{fontSize: "14px", margin:"10px 0 10px 0"}}>{item.sity}</Typography>
+                                    <Typography variant="body2" color="gray" style={{fontSize: "12px", margin:"5px 0 5px 0"}}>{item.sity}</Typography>
                                     <Typography variant="body2" color="black">{item.description}</Typography>
                                 </TableCell>
                                 <TableCell sx={{ border: "1px solid rgba(128, 128, 128, 0.2)" }}>{item.seats}</TableCell>

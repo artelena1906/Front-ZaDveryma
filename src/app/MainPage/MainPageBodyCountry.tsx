@@ -11,15 +11,14 @@ import Image from "next/image";
 
 export default function Country() {
     interface Country {
+        id: number;  
         img: string;
         name: string;
         alt: string;
     }
 
     const [country, setCountry] = useState<Country[]>([]);
-    // const swiperRef = useRef<any>(null); 
     const swiperRef = useRef<SwiperClass | null>(null);
-
 
     useEffect(() => {
         fetch("/MainPageHeader.json")
@@ -31,14 +30,13 @@ export default function Country() {
             .catch((error) => console.error("Ошибка загрузки данных:", error));
     }, []);
 
-    // Обработчик для прокрутки к первой стране на выбранную букву
     const handleAlphabetClick = (letter: string) => {
         const index = country.findIndex((item) => item.name.startsWith(letter));
         if (index !== -1 && swiperRef.current) {
-            swiperRef.current.slideTo(index); // Убираем `.swiper`
+            swiperRef.current.slideTo(index);
         }
-    }
-    // Украинский алфавит
+    };
+
     const ukrainianAlphabet = "АБВГІКМНПРСТУФХЧШЯ";
 
     return (
@@ -46,24 +44,29 @@ export default function Country() {
             <h2 className={styles.h2Country}>Країни</h2>
 
             <div className={styles.categorycontainer}>
-                {/* Карусель стран */}
                 <Swiper
-                    onSwiper={(swiper) => (swiperRef.current = swiper)} // Сохраняем объект Swiper
+                    onSwiper={(swiper) => (swiperRef.current = swiper)}
                     modules={[Navigation]}
                     spaceBetween={10}
-                    // navigation
                     breakpoints={{
                         640: { slidesPerView: 2 },
                         768: { slidesPerView: 3 },
                         1024: { slidesPerView: 5 },
                     }}
                 >
-
-                    {country.map((item, index) => (
-                        <SwiperSlide key={index}>
+                    {country.map((item) => (
+                        <SwiperSlide key={item.id}> {/* Используем item.id вместо index */}
                             <div className={styles.categoryitem}>
-                                <Link prefetch={true} href='/' className={styles.categorylink}>
-                                    <Image src={item.img} alt={item.name} className={styles.categoryimage} loading="lazy"
+                                <Link 
+                                    prefetch={true} 
+                                    href={`/PageCountryIndividual/${item.id}`} // Исправляем href
+                                    className={styles.categorylink}
+                                >
+                                    <Image 
+                                        src={item.img} 
+                                        alt={item.name} 
+                                        className={styles.categoryimage} 
+                                        loading="lazy"
                                         width={180}
                                         height={180}
                                     />
@@ -75,7 +78,6 @@ export default function Country() {
                 </Swiper>
             </div>
 
-            {/* Алфавит для прокрутки */}
             <div className={styles.alphabetContainer}>
                 {ukrainianAlphabet.split("").map((letter, index) => (
                     <button
