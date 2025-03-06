@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./css/MainPageFooter.module.css";
-import Link from "next/link"; 
+import Link from "next/link";
+import Image from "next/image";
 
 export default function MainPageFooter() {
     return (
@@ -11,30 +12,30 @@ export default function MainPageFooter() {
                     <ul>
                         <li className={styles.text}>Про подорожі</li>
                         <li><Link href="/PageCountry">Країни</Link></li>
-                        <li><a href="#">Мрії</a></li>
-                        <li><a href="#">Блог</a></li>
+                        <li><Link href="/PageCountry">Мрії</Link></li>
+                        <li><Link href="/PageCountry">Блог</Link></li>
                     </ul>
                     <ul>
                         <li className={styles.text}>Наші друзі</li>
-                        <li><a href="#">Кухня на підборах</a></li>
+                        <li><Link href="/PageCountry">Кухня на підборах</Link></li>
                     </ul>
                     <ul>
                         <li className={styles.text}>Контакти</li>
                         <li className={styles.messenger}>
                             <a href="viber://chat?number=+380XXXXXXXXX">
-                                <img src="img/messenger/LogoViber.png" alt="Viber" width="32" height="32" />
+                                <Image src="/img/messenger/LogoViber.png" alt="Viber" width={32} height={32} />
                             </a>
                             <a href="https://t.me/ZaDveryma">
-                                <img src="img/messenger/LogoTelegram.png" alt="Telegram" width="32" height="32" />
+                                <Image src="/img/messenger/LogoTelegram.png" alt="Telegram" width={32} height={32} />
                             </a>
                             <a href="https://www.facebook.com/profile.php?id=61567874720973&locale=ru_RU">
-                                <img src="img/messenger/fb.png" alt="Facebook" width="32" height="32" />
+                                <Image src="/img/messenger/fb.png" alt="Facebook" width={32} height={32} />
                             </a>
                             <a href="https://instagram.com/YourProfile">
-                                <img src="img/messenger/LogoInstagram.png" alt="Instagram" width="32" height="32" />
+                                <Image src="/img/messenger/LogoInstagram.png" alt="Instagram" width={32} height={32} />
                             </a>
                             <a href="https://wa.me/+380XXXXXXXXX">
-                                <img src="img/messenger/LogoWhatsapp.png" alt="WhatsApp" width="32" height="32" />
+                                <Image src="/img/messenger/LogoWhatsapp.png" alt="WhatsApp" width={32} height={32} />
                             </a>
                         </li>
                     </ul>

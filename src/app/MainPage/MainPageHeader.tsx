@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./css/MainPageHeader.module.css";
 import Link from "next/link";
 import 'swiper/swiper-bundle.css';
+import Image from "next/image";
 
 
 export default function Header() {
@@ -12,33 +13,35 @@ export default function Header() {
     subItems?: { href: string; text: string }[];
 }
 
-  //Меню на главной странице
-  const menuItems = [
-    { href: "/", text: "Головна" },
-    {
-      href: "#travel", text: "Тури",
+const menuItems: MenuItem[] = [
+  { href: "/", text: "Головна" },
+  {
+      href: "/PageCountry",
+      text: "Тури",
       subItems: [
-        { href: "#ukraine", text: "Україна" },
-        { href: "#france", text: "Франція" },
-        { href: "#italy", text: "Італія" },
-        { href: "#italy", text: "Португалія" },
-        { href: "#italy", text: "Ісландія" },
-      ]
-    },
-    { href: "#services", text: "Мрії", 
+          { href: "/PageCountry", text: "Україна" },
+          { href: "/PageCountry", text: "Франція" },
+          { href: "/PageCountry", text: "Італія" },
+          { href: "/PageCountry", text: "Португалія" },
+          { href: "/PageCountry", text: "Ісландія" },
+      ],
+  },
+  {
+      href: "/PageCountry",
+      text: "Мрії",
       subItems: [
-        { href: "#ukraine", text: "Китай" },
-        { href: "#france", text: "Японія" },
-        { href: "#italy", text: "Нова Зеландія" },
-        { href: "#italy", text: "Вє'тнам" },
-        { href: "#italy", text: "Південна Америка" },
-        { href: "#italy", text: "Кенія" },
-      ]
-    },
-    { href: "#blog", text: "Блог" },
-    { href: "#poslugi", text: "Послуги" },
-    { href: "/PageAboutUs", text: "Про нас" }
-  ];
+          { href: "/PageCountry", text: "Китай" },
+          { href: "/PageCountry", text: "Японія" },
+          { href: "/PageCountry", text: "Нова Зеландія" },
+          { href: "/PageCountry", text: "В'єтнам" }, // Виправлено опечатку
+          { href: "/PageCountry", text: "Південна Америка" },
+          { href: "/PageCountry", text: "Кенія" },
+      ],
+  },
+  { href: "/PageAboutUs", text: "Блог" },
+  { href: "/PageCountry", text: "Послуги" },
+  { href: "/PageAboutUs", text: "Про нас" },
+];
 
   return (
     <>
@@ -46,28 +49,33 @@ export default function Header() {
       <Link prefetch={true} href="/">
         <div className={styles.logoContainer}>
           {/* <img src="img/Logo.png" alt="banner" className={styles.Logophoto} /> */}
-          <img src="img/Logo2.png" alt="banner" className={styles.Logo} />
+          <Image 
+          src="/img/Logo2.png" 
+          alt="banner" 
+          width={200}
+          height={100}
+          className={styles.Logo} />
         </div>
       </Link>
 
       <nav className={styles.menu}>
-        {menuItems.map((item, index) => (
-          <div key={index} className={styles.menuItem}>
-            <a className={styles.menubtn} href={item.href}>
-              {item.text}
-            </a>
+    {menuItems.map((item, index) => (
+        <div key={index} className={styles.menuItem}>
+            <Link href={item.href} className={styles.menubtn}>
+                {item.text}
+            </Link>
             {item.subItems && (
-              <ul className={styles.dropdown}>
-                {item.subItems.map((subItem, subIndex) => (
-                  <li key={subIndex}>
-                    <a href={subItem.href}>{subItem.text}</a>
-                  </li>
-                ))}
-              </ul>
+                <ul className={styles.dropdown}>
+                    {item.subItems.map((subItem, subIndex) => (
+                        <li key={subIndex}>
+                            <Link href={subItem.href}>{subItem.text}</Link>
+                        </li>
+                    ))}
+                </ul>
             )}
-          </div>
-        ))}
-      </nav>
+        </div>
+    ))}
+</nav>
     </div>
     <hr className={styles.h}></hr>
     </>
