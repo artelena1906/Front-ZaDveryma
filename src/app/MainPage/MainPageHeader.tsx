@@ -23,7 +23,7 @@ const menuItems: MenuItem[] = [
           { href: "/PageCountry", text: "Франція" },
           { href: "/PageCountry", text: "Італія" },
           { href: "/PageCountry", text: "Португалія" },
-          { href: "/PageCountry", text: "Ісландія" },
+          { href: "/PageAboutUs", text: "Ісландія" },
       ],
   },
   {
