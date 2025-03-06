@@ -6,6 +6,12 @@ import 'swiper/swiper-bundle.css';
 
 export default function Header() {
 
+  interface MenuItem {
+    href: string;
+    text: string;
+    subItems?: { href: string; text: string }[];
+}
+
   //Меню на главной странице
   const menuItems = [
     { href: "/", text: "Головна" },
@@ -31,7 +37,7 @@ export default function Header() {
     },
     { href: "#blog", text: "Блог" },
     { href: "#poslugi", text: "Послуги" },
-    { href: "#contact", text: "Про нас" }
+    { href: "/PageAboutUs", text: "Про нас" }
   ];
 
   return (

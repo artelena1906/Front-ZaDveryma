@@ -27,7 +27,7 @@ export default function MainPageFooter() {
                             <a href="https://t.me/ZaDveryma">
                                 <img src="img/messenger/LogoTelegram.png" alt="Telegram" width="32" height="32" />
                             </a>
-                            <a href="https://facebook.com/YourProfile">
+                            <a href="https://www.facebook.com/profile.php?id=61567874720973&locale=ru_RU">
                                 <img src="img/messenger/fb.png" alt="Facebook" width="32" height="32" />
                             </a>
                             <a href="https://instagram.com/YourProfile">
