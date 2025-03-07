@@ -6,19 +6,16 @@ import { useParams } from "next/navigation";
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Typography } from "@mui/material";
 
 export default function PageCountryIndividual() {
-    // Интерфейс для изображений
     interface ImageItem {
         url: string;
         alt: string;
     }
 
-    // Интерфейс для текстового блока
     interface TextSection {
         title: string | null;
         description: string;
     }
 
-    // Интерфейс для страны
     interface Country {
         id: number;
         text: TextSection[];
@@ -28,7 +25,6 @@ export default function PageCountryIndividual() {
         image?: ImageItem[];
     }
 
-    // Интерфейс для тура
     interface Tour {
         id: string;
         date: string;
@@ -42,7 +38,7 @@ export default function PageCountryIndividual() {
 
     const [countryData, setCountryData] = useState<Country | null>(null);
     const [tours, setTours] = useState<Tour[]>([]);
-    const [isModalOpen, setIsModalOpen] = useState(false); // Стан для модального вікна
+    const [isModalOpen, setIsModalOpen] = useState(false);
     const params = useParams();
     const countryId = params?.id;
 
@@ -68,7 +64,6 @@ export default function PageCountryIndividual() {
             .catch((error) => console.error("Ошибка загрузки данных:", error));
     }, [countryId]);
 
-    // Функція для відкриття/закриття модального вікна
     const handleImageClick = () => {
         setIsModalOpen(true);
     };
@@ -88,8 +83,8 @@ export default function PageCountryIndividual() {
                 <Image
                     src={countryData.imgmap}
                     alt={countryData.alt}
-                    width={200}
-                    height={200}
+                    width={450}
+                    height={250}
                     className={styles.mapImage}
                     onClick={handleImageClick}
                     style={{ cursor: "pointer" }}
@@ -125,15 +120,14 @@ export default function PageCountryIndividual() {
                 </div>
             )}
 
-            {/* Модальне вікно */}
             {isModalOpen && (
                 <div className={styles.modalOverlay} onClick={handleCloseModal}>
                     <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
                         <Image
                             src={countryData.imgmap}
                             alt={countryData.alt}
-                            width={800}
-                            height={800}
+                            width={1000}
+                            height={600}
                             className={styles.modalImage}
                         />
                         <button className={styles.closeButton} onClick={handleCloseModal}>
@@ -143,7 +137,6 @@ export default function PageCountryIndividual() {
                 </div>
             )}
 
-            {/* Таблиця турів */}
             <div className={styles.containertour}>
                 {tours.length > 0 ? (
                     <>
@@ -241,7 +234,7 @@ export default function PageCountryIndividual() {
                             fontStyle: "italic",
                         }}
                     >
-                        За даним направленням турів не має
+                        За даним направленням тури в розробці
                     </Typography>
                 )}
             </div>

@@ -83,8 +83,8 @@
 .mapImage {
     flex-shrink: 0; /* Зображення не стискається */
     border-radius: 15px;
-    width: 400px;
-    height: 200px;
+    width: 450px;
+    height: 250px;
 }
 
 .introDescription {
@@ -117,9 +117,31 @@
 
 .modalImage {
     display: block;
-    width: 800px;   
-    height: 500px;
+    width: 1000px;   
+    height: 600px;
     border-radius: 15px;
+    transition: transform 0.3s ease; /* Плавний поворот */
+}
+
+.modalControls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.rotateButton {
+    padding: 8px 16px;
+    background: #556B2F;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.rotateButton:hover {
+    background: #678F4E;
 }
 
 .closeButton {
