@@ -103,7 +103,7 @@
     border: 2px solid #93C572;
 }
 
-@media screen and (max-width: 800) {
+@media screen and (max-width: 800px) {
     .search {
         flex-direction: column;
         gap: 15px;
