@@ -55,7 +55,7 @@ export default function Header() {
         <Link prefetch={true} href="/">
           <div className={styles.logoContainer}>
             <Image
-              src="/img/text_logo1.png"
+              src="/img/text_logo2.png"
               alt="banner"
               width={500}
               height={200}
