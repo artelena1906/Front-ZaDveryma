@@ -27,7 +27,7 @@ export default function Search() {
     const [selectedCountry, setSelectedCountry] = useState<string>("");
     const [selectedDate, setSelectedDate] = useState<Date | null>(null);
     const [isClient, setIsClient] = useState(false);
-    const datePickerRef = useRef<any>(null);
+    const datePickerRef = useRef<React.ComponentRef<typeof DatePicker>>(null);
 
     useEffect(() => {
         setIsClient(true);
