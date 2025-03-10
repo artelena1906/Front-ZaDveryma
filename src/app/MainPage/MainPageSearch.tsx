@@ -1,231 +1,21 @@
-// "use client";
-// import { useState, useEffect } from "react";
-// import DatePicker from "react-datepicker";
-// import "react-datepicker/dist/react-datepicker.css";
-// import { uk } from "date-fns/locale"; 
-// import styles from "./css/MainPageSearch.module.css";
+"use client";
+import { useState, useEffect, useRef } from "react";
+import styles from "./css/MainPageSearch.module.css";
+import Image from "next/image";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { registerLocale } from "react-datepicker";
+import uk from "date-fns/locale/uk";
+import Select from "react-select";
+import { StylesConfig } from "react-select"; // Импортируем тип StylesConfig
 
-// export default function Search() {
-//     interface Country {
-//         id: number;
-//         name: string;
-//         alt: string;
-//     }
+registerLocale("uk", uk);
 
-//     const [country, setCountry] = useState<Country[]>([]);
-//     const [selectedCountry, setSelectedCountry] = useState<string>("");
-//     const [selectedDate, setSelectedDate] = useState<Date | null>(null);
-//     const [showCalendar, setShowCalendar] = useState(false);
-
-//     useEffect(() => {
-//         fetch("/MainPageHeader.json")
-//             .then((res) => res.json())
-//             .then((data) => {
-//                 setCountry(data.bodyData.country);
-//             })
-//             .catch((error) => console.error("Помилка завантаження даних:", error));
-//     }, []);
-
-//     return (
-//         <>
-//             <div className={styles.containerSearch}>
-//                 <div className={styles.search}>
-//                     {/* Вибір країни */}
-//                     <select
-//                         className={styles.searchSelect}
-//                         name="states"
-//                         id="states"
-//                         value={selectedCountry}
-//                         onChange={(e) => setSelectedCountry(e.target.value)}
-//                     >
-//                         <option value="" disabled hidden>
-//                             Виберіть країну
-//                         </option>
-//                         {country.map((item) => (
-//                             <option key={item.id} value={item.id}>
-//                                 {item.name}
-//                             </option>
-//                         ))}
-//                     </select>
-
-//                     <button
-//                         className={styles.searchSelect}
-//                         onClick={() => setShowCalendar(!showCalendar)}
-//                     >
-//                         {selectedDate ? selectedDate.toLocaleDateString("uk-UA") : "Виберіть дату"}
-//                     </button>
-//                     {showCalendar && (
-//                         <DatePicker
-//                             selected={selectedDate}
-//                             onChange={(date) => {
-//                                 setSelectedDate(date);
-//                                 setShowCalendar(false);
-//                             }}
-//                             dateFormat="dd MMMM yyyy"
-//                             locale={uk} // Устанавливаем украинский язык
-//                             inline
-//                         />
-//                     )}
-
-//                     {/* Кнопка пошуку */}
-//                     <button className={styles.btn}>Пошук</button>
-//                 </div>
-//             </div>
-//             <hr className={styles.h}></hr>
-//         </>
-//     );
-// }
-
-// "use client";
-// import { useState, useEffect } from "react";
-// import { LocalizationProvider, DesktopDatePicker } from "@mui/x-date-pickers";
-// import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
-// import { uk } from "date-fns/locale";
-// import { TextField, Select, MenuItem, InputLabel, FormControl } from '@mui/material';
-// import styles from "./css/MainPageSearch.module.css";
-
-// export default function Search() {
-//     interface Country {
-//         id: number;
-//         name: string;
-//         alt: string;
-//     }
-
-//     const [country, setCountry] = useState<Country[]>([]);
-//     const [selectedCountry, setSelectedCountry] = useState<string>("");
-//     const [selectedDate, setSelectedDate] = useState<Date | null>(null);
-//     const [inputValue, setInputValue] = useState("");
-
-//     useEffect(() => {
-//         fetch("/MainPageHeader.json")
-//             .then((res) => res.json())
-//             .then((data) => {
-//                 setCountry(data.bodyData.country);
-//             })
-//             .catch((error) => console.error("Помилка завантаження даних:", error));
-//     }, []);
-
-//     const handleDateChange = (newDate: Date | null) => {
-//         setSelectedDate(newDate);
-//         if (newDate) {
-//             setInputValue(newDate.toLocaleDateString("uk-UA", {
-//                 day: "2-digit",
-//                 month: "2-digit",
-//                 year: "numeric"
-//             }));
-//         } else {
-//             setInputValue("");
-//         }
-//     };
-
-//     return (
-//         <>
-//             <div className={styles.containerSearch}>
-//                 <div className={styles.search}>
-//                     {/* Выбор страны через MUI Select */}
-//                     <FormControl fullWidth variant="outlined">
-//                         <InputLabel id="select-country-label">Виберіть країну</InputLabel>
-//                         <Select
-//                             labelId="select-country-label"
-//                             value={selectedCountry}
-//                             onChange={(e) => setSelectedCountry(e.target.value)}
-//                             label="Виберіть країну"
-//                             className={styles.searchSelect}
-//                             sx={{
-//                                 borderRadius: "12px",
-//                                 padding: "0",
-//                                 "&:hover": {
-//                                     backgroundColor: "rgb(240, 240, 240)",
-//                                     border: "2px solid #4E6F2E",
-//                                 },
-//                                 "& .MuiOutlinedInput-root": {
-//                                     "& fieldset": {
-//                                         border: "2px solid #678F4E",
-//                                     },
-//                                     "&:hover fieldset": {
-//                                         border: "2px solid #678F4E",
-//                                     },
-//                                     "&.Mui-focused fieldset": {
-//                                         border: "2px solid #678F4E",
-//                                     }
-//                                 }
-//                             }}
-//                         >
-//                             <MenuItem value="" disabled>
-//                                 Виберіть країну
-//                             </MenuItem>
-//                             {country.map((item) => (
-//                                 <MenuItem key={item.id} value={item.id}>
-//                                     {item.name}
-//                                 </MenuItem>
-//                             ))}
-//                         </Select>
-//                     </FormControl>
-
-//                     {/* Выбор даты с Material UI DatePicker */}
-//                     <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={uk}>
-//                         <DesktopDatePicker
-//                             value={selectedDate}
-//                             onChange={handleDateChange}
-//                             format="dd.MM.yyyy"
-//                             slots={{
-//                                 textField: (params) => (
-//                                     <TextField
-//                                         {...params}
-//                                         value={inputValue}
-//                                         readOnly // Запрещаем редактирование вручную
-//                                         onFocus={() => setInputValue("Виберіть дату в календарі")}
-//                                         onBlur={() => {
-//                                             if (!selectedDate) setInputValue("");
-//                                         }}
-//                                         placeholder="Виберіть дату"
-//                                         sx={{
-//                                             backgroundColor: "rgb(248, 246, 246)",
-//                                             borderRadius: "12px",
-//                                             border: "3px solid #678F4E",
-//                                             transition: "0.3s",
-//                                             width: "300px",
-//                                             "&:hover": {
-//                                                 backgroundColor: "rgb(240, 240, 240)",
-//                                                 border: "3px solid #4E6F2E",
-//                                             },
-//                                             "& .MuiOutlinedInput-root": {
-//                                                 "& fieldset": { border: "none" },
-//                                                 "&:hover fieldset": { border: "none" },
-//                                                 "&.Mui-focused fieldset": { border: "none" },
-//                                             },
-//                                             // Цвет текста по умолчанию
-//                                             "& .MuiInputBase-root": {
-//                                                 "& .MuiInputBase-input": {
-//                                                     color: "#757575", // Цвет текста по умолчанию
-//                                                 },
-//                                             },
-//                                             // "& .MuiInputBase-input::placeholder": {
-//                                             //     color: "black", // Цвет плейсхолдера
-//                                             // },
-//                                             // Цвет текста при фокусе
-//                                             "& .MuiInputBase-input:focus": {
-//                                                 color: "red", // Цвет текста при фокусе
-//                                             }
-//                                         }}
-//                                     />
-//                                 )
-//                             }}
-//                         />
-//                     </LocalizationProvider>
-
-//                     {/* Кнопка поиска */}
-//                     <button className={styles.btn}>Пошук</button>
-//                 </div>
-//             </div>
-//             <hr className={styles.h}></hr>
-//         </>
-//     );
-// }
-
-"use client"
-import { useState, useEffect } from "react";
-import styles from "./css/MainPageSearch.module.css"; // Подключите ваши стили
+// Определяем интерфейс для опций Select (value и label)
+interface OptionType {
+    value: string;
+    label: string;
+}
 
 export default function Search() {
     interface Country {
@@ -235,65 +25,129 @@ export default function Search() {
 
     const [countries, setCountries] = useState<Country[]>([]);
     const [selectedCountry, setSelectedCountry] = useState<string>("");
-    const [selectedDate, setSelectedDate] = useState<string>("");
+    const [selectedDate, setSelectedDate] = useState<Date | null>(null);
+    const [isClient, setIsClient] = useState(false);
+    const datePickerRef = useRef<any>(null);
 
     useEffect(() => {
+        setIsClient(true);
         fetch("/MainPageHeader.json")
             .then((res) => res.json())
             .then((data) => {
-                setCountries(data.bodyData.country); // Подставьте актуальный путь к данным
+                setCountries(data.bodyData.country);
             })
             .catch((error) => console.error("Помилка завантаження даних:", error));
     }, []);
 
-    const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setSelectedDate(e.target.value);
+    const handleCountryChange = (option: OptionType | null) => {
+        setSelectedCountry(option ? option.value : "");
     };
 
-    const handleCountryChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-        setSelectedCountry(e.target.value);
+    const handleDateChange = (date: Date | null) => {
+        setSelectedDate(date);
     };
 
     const handleSearch = () => {
         console.log("Выбрана страна:", selectedCountry);
-        console.log("Выбрана дата:", selectedDate);
-        // Логика для поиска или перехода на другую страницу
+        console.log("Выбрана дата:", selectedDate ? selectedDate.toISOString().split("T")[0] : "");
     };
 
+    const openDatePicker = () => {
+        if (datePickerRef.current) {
+            datePickerRef.current.setOpen(true);
+        }
+    };
+
+    // Определяем стили с типизацией
+    const selectStyles: StylesConfig<OptionType, false> = {
+        control: (base, state) => ({
+            ...base,
+            padding: "5px",
+            minHeight: "40px",
+            border: "3px solid #4E6F2E",
+            borderRadius: "12px",
+            fontSize: "16px",
+            backgroundColor: "rgb(240, 240, 240)",
+            width: "300px",
+            boxShadow: state.isFocused ? "none" : "none", 
+            "&:hover": {
+                border: "3px solid #4E6F2E", 
+            },
+            transform: state.isFocused ? "translateY(-2px)" : "none",
+        }),
+        placeholder: (base) => ({
+            ...base,
+            color: "rgb(158, 157, 157)",
+            textAlign: "left",
+        }),
+        singleValue: (base) => ({
+            ...base,
+            color: "black",
+            textAlign: "left",
+        }),
+        valueContainer: (base) => ({
+            ...base,
+            padding: "0",
+        }),
+        option: (base, state) => ({
+        ...base,
+        backgroundColor: state.isFocused ? "#93C572" : "white",
+        color: "black",
+        "&:hover": {
+            backgroundColor: "#93C572",
+        },
+    }),
+    };
+
+    if (!isClient) {
+        return null; // Ничего не рендерим на сервере
+    }
+
     return (
-        <>
         <div className={styles.containerSearch}>
             <div className={styles.search}>
-                {/* Выбор страны */}
-                <select
-                    value={selectedCountry}
-                    onChange={handleCountryChange}
-                    className={styles.select}
-                >
-                    <option value="" disabled>Виберіть країну</option>
-                    {countries.map((item) => (
-                        <option key={item.id} value={item.id}>
-                            {item.name}
-                        </option>
-                    ))}
-                </select>
+                <div className={styles.selectWrapper}>
+                    <Select
+                        options={countries.map((item) => ({ value: item.id.toString(), label: item.name }))}
+                        value={
+                            countries.find((item) => item.id === Number(selectedCountry))
+                                ? { value: selectedCountry, label: countries.find((item) => item.id === Number(selectedCountry))!.name }
+                                : null
+                        }
+                        onChange={handleCountryChange}
+                        placeholder="Виберіть країну"
+                        className={styles.reactSelect}
+                        classNamePrefix="react-select"
+                        styles={selectStyles} // Используем типизированные стили
+                    />
+                </div>
 
-                {/* Выбор даты */}
-                <input
-                    type="date"
-                    value={selectedDate}
-                    onChange={handleDateChange}
-                    className={styles.dateInput}
-                    placeholder="Виберіть дату"
-                />
+                <div className={styles.dateWrapper}>
+                    <DatePicker
+                        selected={selectedDate}
+                        onChange={handleDateChange}
+                        className={styles.dateInput}
+                        placeholderText="Виберіть дату"
+                        dateFormat="dd-MM-yyyy"
+                        locale="uk"
+                        popperPlacement="bottom-start"
+                        ref={datePickerRef}
+                        onFocus={() => openDatePicker()}
+                    />
+                    <Image
+                        src="/img/calendar.png"
+                        alt="Календар"
+                        width={24}
+                        height={24}
+                        className={styles.calendarIcon}
+                        onClick={openDatePicker}
+                    />
+                </div>
 
-                {/* Кнопка поиска */}
                 <button className={styles.btn} onClick={handleSearch}>
                     Пошук
                 </button>
             </div>
         </div>
-        {/* <hr className={styles.h}></hr> */}
-        </>
     );
 }

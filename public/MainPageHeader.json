@@ -209,6 +209,8 @@
           }
         ]
       },
+
+ 
       {
         "id": 3,
         "name": "Великобританія",
@@ -231,7 +233,7 @@
           }
         ],
         "img": "/img/country/GreatBritain.jpg",
-        "imgmap": "/img/GreatBritain/GreatBritainMap.jpg",
+        "imgmap": "/img/GreatBritain/GreatBritainMap.png",
         "alt": "Великобританія",
         "image": [
           {

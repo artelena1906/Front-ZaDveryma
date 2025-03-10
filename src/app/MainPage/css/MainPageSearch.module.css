@@ -1,9 +1,9 @@
 .containerSearch {
-    display: flex;
+    position: relative;
     background-color: #F5F5DC;
-    /* justify-content: space-between; */
     text-align: center;
     justify-content: center;
+    z-index: 980;
 }
 
 .h {
@@ -21,60 +21,72 @@
     align-items: center;
 }
 
-.select,
-.dateInput,
-.btn {
-    /* margin-bottom: 10px; */
+.selectWrapper {
+    position: relative;
+    width: 300px;
+}
+
+.dateWrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .dateInput {
     padding: 5px;
-    min-height: 40px;
+    min-height: 50px;
     border: 3px solid #4E6F2E;
     border-radius: 12px;
     font-size: 16px;
     background-color: rgb(240, 240, 240);
-    color: grey;
-}
-
-.select option {
-    background-color: white; /* Белый фон для выпадающего списка */
-    color: black; /* Черный текст */
-    overflow-y: auto; /* Включаем вертикальный скролл */
-}
-
-
-.selectContainer select {
-    appearance: none; /* Убираем стандартную стрелку браузера */
-    -webkit-appearance: none; /* Для Safari */
-    -moz-appearance: none; /* Для Firefox */
-    padding-right: 20px; /* Оставляем место для кастомной стрелки, если нужно */
-}
-
-.selectContainer::after {
-    content: "▼"; /* Стрелка вниз */
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    pointer-events: none; /* Стрелка не будет мешать взаимодействовать с полем */
-}
-
-.select::-ms-expand {
-    display: none;
-}
-
-.select {
-    width: 300px;
-}
-
-.dateInput {
     width: 200px;
 }
 
+/* Убираем черный бордер при фокусе и сохраняем зеленый */
+.dateInput:focus {
+    border: 3px solid #4E6F2E !important;
+    outline: none !important; /* Убираем стандартный outline */
+}
+
+.dateInput::placeholder {
+    color: rgb(158, 157, 157);
+}
+
+/* Иконка календаря */
+.calendarIcon {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+    z-index: 1002;
+}
+
+/* Стили для календаря */
+ .react-datepicker {
+    z-index: 10003;
+    border: 3px solid #4E6F2E; 
+    border-radius: 12px;
+ }
+
+.react-datepicker-popper {
+    z-index: 10003; 
+    margin-top: 5px;
+}  
+
+.hiddenDateInput {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+}
+  
 .btn {
     text-align: center;
     min-width: 180px;
+    min-height: 50px;
     background-color: #93C572;
     color: #F5F5DC;
-    border-radius: 25px;
+    border-radius: 16px;
     text-decoration: none;
     font-weight: bold;
     transition: all 0.3s ease;
@@ -91,6 +103,30 @@
     border: 2px solid #93C572;
 }
 
-.select:hover, .dateInput:hover {
-    border: 3px solid #678F4E;
+@media screen and (max-width: 800) {
+    .search {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .selectWrapper {
+        width: 300px; /* Обертка занимает 300px */
+    }
+
+    .select, .dateInput, .btn {
+        width: 300px;
+    }
+
+    .selectWrapper select {
+        max-width: 280px; /* Чуть меньше ширины поля, чтобы уместиться */
+        width: 280px; /* Фиксируем ширину выпадающего списка */
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .select option {
+       font-size: 12px;
+       max-width: 300px;
+    } 
 }
