@@ -105,28 +105,28 @@
 
 @media screen and (max-width: 800px) {
     .search {
-        flex-direction: column;
-        gap: 15px;
+        flex-direction: column !important;
+        gap: 15px !important;
     }
 
     .selectWrapper {
-        width: 300px; /* Обертка занимает 300px */
+        width: 300px !important; /* Обертка занимает 300px */
     }
 
     .select, .dateInput, .btn {
-        width: 300px;
+        width: 300px !important;
     }
 
     .selectWrapper select {
-        max-width: 280px; /* Чуть меньше ширины поля, чтобы уместиться */
-        width: 280px; /* Фиксируем ширину выпадающего списка */
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
+        max-width: 280px !important; /* Чуть меньше ширины поля, чтобы уместиться */
+        width: 280px !important; /* Фиксируем ширину выпадающего списка */
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        white-space: nowrap !important;
     }
 
     .select option {
-       font-size: 12px;
-       max-width: 300px;
+       font-size: 12px !important;
+       max-width: 300px !important;
     } 
 }
