@@ -182,8 +182,9 @@
   } 
   
   .Logo {
-    max-width: 400px;
-    margin: 15px 0 15px 0;
+    max-width: 400px important;
+    min-width: 200px;
+    margin: 10px 0 10px 0;
   }
 
   .logoContainer {
@@ -219,14 +220,12 @@
     max-width: 60px;
   } 
   
-  .Logo {
     .Logo {
-      max-width: 150px;
+      max-width: 150px important;
       min-width: 70px;
-      margin: 10px 0 10px 0;
+      margin: 5px 0 5px 0;
     }
-  }
-
+  
   .logoContainer {
     width: 100%;
     margin-bottom: 0;
