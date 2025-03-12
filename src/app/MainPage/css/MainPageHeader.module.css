@@ -5,10 +5,11 @@
   display: flex;
   flex-wrap: wrap;
   background-color: #93C572;
-  align-items:flex-end;
+  /* align-items:flex-end; */
   justify-content: space-between;
-  align-items: center;
-  text-align: center;
+  /* align-items: center;
+  text-align: center; */
+  align-items:flex-end;
   margin: 0;
   padding: 0;
 }
@@ -34,22 +35,21 @@
   min-width: 500px;
   /* max-width: 500px; */
   margin-left: 20px;
-  height: auto;
+  /* height: auto; */
 }
 
 .menu {
   display: flex;
   /* justify-content: flex-end; */
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* text-align: center; */
   gap: 10px;
-  margin: 15px 40px 15px 0;
+  margin: 15px 40px 10px 0;
 }
 
 .menuItem {
   position: relative;
-
 }
 
 .menu a{
@@ -145,16 +145,15 @@
 @media (max-width: 1200px) {
   .containerHeader {
     justify-content: center;
-
   }
 
   .Logo {
-    margin: 15px 0 15px 0;
+    margin: 5px 0 5px 0;
   }
 
-  .Logophoto {
+  /* .Logophoto {
     margin-left: 10px;
-  }
+  } */
   
   /*Стили для названия компании */
   .menu {
@@ -184,7 +183,7 @@
   .Logo {
     max-width: 400px important;
     min-width: 200px;
-    margin: 10px 0 10px 0;
+    margin: 5px 0 5px 0;
   }
 
   .logoContainer {
@@ -235,7 +234,7 @@
     width: 100%;
     justify-content: center;
     flex-wrap: wrap;
-    margin-bottom: 0 5px 15px 0;
+    margin-bottom: 0 5px 10px 0;
   }
 
   .menu a{
