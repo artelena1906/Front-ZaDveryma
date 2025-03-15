@@ -1,0 +1,108 @@
+/* Контейнер всей секции */
+.container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Заголовок */
+  .title {
+    font-size: 30px;
+    text-align: center;
+    padding-bottom: 10px;
+    font-family: "Playwrite India", cursive;
+    color: #556b2f;
+    font-style: italic;
+    font-weight: bold;
+    margin: 20px 0 20px 0;
+  }
+  
+  /* Контейнер таблицы */
+  .tableContainer {
+    width: calc(100% - 40px);
+    /* max-width: 100%; */
+    overflow-x: auto;
+    margin: 0 20px 0 20px;
+    border-radius: 15px;
+    box-shadow: 0 3px 6px rgba(54, 53, 53, 0.1);
+    border: 1px solid rgba(173, 173, 173, 0.3);
+  }
+  
+  /* Обертка для таблицы */
+  .tableWrapper {
+    overflow: hidden;
+    width: 100%;
+  }
+  
+  /* Таблица */
+  .table {
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  /* Заголовок таблицы */
+  .tableHead {
+    height: 50px;
+    background-color: #f5f5dc;
+  }
+  
+  /* Ячейка заголовка */
+  .tableHeadCell {
+    border: 1px solid rgba(128, 128, 128, 0.1);
+    text-align: center;
+  }
+  
+  .tableHeadCellDate {
+    width: 120px;
+  }
+  
+  .tableHeadCellName {
+    width: 600px;
+  }
+  
+  /* Строка таблицы */
+  .tableRow {
+    cursor: pointer;
+    transform-origin: center;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .tableRow:hover {
+    background-color: #f0f0f0;
+    transform: scaleY(1.1);
+    z-index: 1;
+  }
+  
+  /* Ячейка таблицы */
+  .tableCell {
+    border: 1px solid rgba(128, 128, 128, 0.2);
+  }
+  
+  /* Стили для названия тура */
+  .tourName {
+    color: #556b2f;
+    font-family: "Playwrite India", cursive;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 22px;
+  }
+  
+  /* Город */
+  .tourCity {
+    font-size: 12px;
+    color: gray;
+    margin: 5px 0;
+  }
+  
+  /* Описание */
+  .tourDescription {
+    color: black;
+  }
+
+  @media screen and (max-width: 1100px) {
+    .title {
+        font-size: 28px;
+    }
+
+
+  }

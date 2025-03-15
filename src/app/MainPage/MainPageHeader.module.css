@@ -272,6 +272,23 @@
 
 }
 
+@media (max-width: 1200px) { /* Можно настроить breakpoint под ваши нужды */
+  .containerBody {
+    flex-direction: column; /* Меняем направление на вертикальное */
+  }
+
+  .leftcolumn {
+    order: 2; /* Левая колонка становится второй */
+    width: calc(100% - 40px); /* Учитываем отступы */
+  }
+
+  .rightcolumn {
+    order: 1; /* Правая колонка становится первой */
+    width: calc(100% - 40px); /* Учитываем отступы */
+    margin: 20px;
+  }
+}
+
 
 
 

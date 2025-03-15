@@ -1,0 +1,37 @@
+.tourcontainer {
+  display: flex;
+  flex-direction: column;
+  margin: 0 20px 0 40px;
+}
+
+.imageGallery {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  margin: 50px 0 20px 0;
+  transition: transform 0.3s ease-in-out;
+}
+
+.galleryImage {
+  border-radius: 12px;
+  object-fit: cover;
+  max-width: 350px;
+  min-height: 200px;
+}
+
+.galleryImage:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+}
+
+.tourDays {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 60px 40px 60px;
+}
+
+.daySection {
+  margin-bottom: 20px;
+}

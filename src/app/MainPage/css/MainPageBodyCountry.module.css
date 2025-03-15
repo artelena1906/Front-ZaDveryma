@@ -1,6 +1,5 @@
 .container{
   display: flex;
-  /* width: 100%; */
   flex-direction: column;
 }
 
@@ -91,6 +90,29 @@
 .alphabetLetter:hover {
   background-color: #678F4E;
   color: white;
+}
+
+@media (max-width: 800px) {
+  .categorycontainer {
+    gap: 10px;
+    margin: 0 10px 0 10px;
+    padding: 5px;
+  }
+
+  .categoryimage {
+    width: 150px;
+    height: 150px;
+  }
+  .categorytext {
+    font-size: 12px;
+  }
+  .h2Country {
+    font-size: 24px;
+  }
+  .alphabetLetter {
+    padding: 3px;
+    font-size: 10px;
+  }  
 }
 
 

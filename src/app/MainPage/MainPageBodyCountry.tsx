@@ -49,9 +49,11 @@ export default function Country() {
                     modules={[Navigation]}
                     spaceBetween={10}
                     breakpoints={{
-                        640: { slidesPerView: 2 },
-                        768: { slidesPerView: 3 },
-                        1024: { slidesPerView: 5 },
+                        300: { slidesPerView: 2 },
+                        450: { slidesPerView: 3 },
+                        640: { slidesPerView: 4 },
+                        800: { slidesPerView: 5 },
+                        // 1200: { slidesPerView: 5 },
                     }}
                 >
                     {country.map((item) => (
