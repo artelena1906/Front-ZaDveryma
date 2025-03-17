@@ -50,7 +50,7 @@
 }
 
 .textSection {
-    margin: 20px 0;
+    margin: 5px 0;
 }
 
 .textBlock {
@@ -72,26 +72,31 @@
 }
 
 .introSection {
-    display: flex;
-    flex-direction: row-reverse; /* Змінюємо порядок: зображення справа */
-    align-items: center; /* Вирівнювання по вертикалі */
-    justify-content: space-between; /* Розподіляємо простір між текстом і зображенням */
-    gap: 10px; /* Відступ між зображенням і текстом */
-    margin: 20px 0; /* Відступ зверху і знизу */
+    /* display: flex; */
+    /* flex-direction: row-reverse; */
+    /* align-items: center;  */
+    /* align-items: flex-start; */
+    /* flex-wrap: wrap; */
+    /* justify-content: space-between;  */
+    /* gap: 10px;  */
+    margin: 10px 0; /* Відступ зверху і знизу */
 }
 
 .mapImage {
-    flex-shrink: 0; /* Зображення не стискається */
+    float: right;
     border-radius: 15px;
     width: 450px;
     height: 250px;
+    margin: 20px 20px 20px 40px;
 }
 
 .introDescription {
     font-size: 16px;
     line-height: 1.5;
     /* color: #333; */
-    flex: 1; /* Текст займає доступний простір */
+    /* flex: 1;  */
+    /* min-width: 0;  */
+  margin: 0; /* Убираем стандартные отступы */
 }
 
 /* Стили для модального вікна */

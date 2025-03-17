@@ -246,7 +246,7 @@
 import { useState, useEffect } from "react";
 import styles from "../css/PageCountryIndividual.module.css";
 import Image from "next/image";
-import { useParams, useRouter } from "next/navigation"; // Добавим useRouter
+import { useParams, useRouter } from "next/navigation";
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Typography } from "@mui/material";
 
 export default function PageCountryIndividual() {
@@ -284,7 +284,7 @@ export default function PageCountryIndividual() {
     const [tours, setTours] = useState<Tour[]>([]);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const params = useParams();
-    const router = useRouter(); // Добавляем роутер
+    const router = useRouter();
     const countryId = params?.id;
 
     useEffect(() => {
@@ -318,7 +318,7 @@ export default function PageCountryIndividual() {
     };
 
     const handleTourClick = (tourId: string) => {
-        router.push(`/PageTourIndividual/${tourId}`); // Переход на страницу тура
+        router.push(`/PageTourIndividual/${tourId}`);
     };
 
     if (!countryData) {
@@ -328,25 +328,27 @@ export default function PageCountryIndividual() {
     return (
         <div className={styles.container}>
             <h1>{countryData.name}</h1>
-            <div className={styles.introSection}>
-                <Image
-                    src={countryData.imgmap}
-                    alt={countryData.alt}
-                    width={450}
-                    height={250}
-                    className={styles.mapImage}
-                    onClick={handleImageClick}
-                    style={{ cursor: "pointer" }}
-                />
-                {countryData.text && countryData.text.length > 0 && (
-                    <p className={styles.introDescription}>
-                        {countryData.text[0].description}
-                    </p>
-                )}
-            </div>
-            {countryData.text && countryData.text.length > 1 && (
+
+            {/* Вводная часть (первый элемент массива text) */}
+            {/* {countryData.text && countryData.text.length > 0 && (
+                <div className={styles.introSection}>
+                    <p className={styles.introDescription}>{countryData.text[0].description}</p>
+                </div>
+            )} */}
+
+            {/* Основной текст с обтеканием изображения */}
+            {countryData.text && countryData.text.length > 0 && (
                 <div className={styles.textSection}>
-                    {countryData.text.slice(1).map((section, index) => (
+                    <Image
+                        src={countryData.imgmap}
+                        alt={countryData.alt}
+                        width={450}
+                        height={250}
+                        className={styles.mapImage}
+                        onClick={handleImageClick}
+                        style={{ cursor: "pointer" }}
+                    />
+                    {countryData.text.slice(0).map((section, index) => (
                         <div key={index} className={styles.textBlock}>
                             <h2>{section.title}</h2>
                             <p>{section.description}</p>
@@ -354,6 +356,8 @@ export default function PageCountryIndividual() {
                     ))}
                 </div>
             )}
+
+            {/* Галерея изображений */}
             {countryData.image && countryData.image.length > 0 && (
                 <div className={styles.imageGallery}>
                     {countryData.image.map((img, index) => (
@@ -369,6 +373,7 @@ export default function PageCountryIndividual() {
                 </div>
             )}
 
+            {/* Модальное окно */}
             {isModalOpen && (
                 <div className={styles.modalOverlay} onClick={handleCloseModal}>
                     <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
@@ -386,6 +391,7 @@ export default function PageCountryIndividual() {
                 </div>
             )}
 
+            {/* Секция туров */}
             <div className={styles.containertour}>
                 {tours.length > 0 ? (
                     <>

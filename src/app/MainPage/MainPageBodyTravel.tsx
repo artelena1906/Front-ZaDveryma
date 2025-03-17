@@ -25,8 +25,9 @@ export default function Travel() {
             .then((data) => setTours(data.bodyData.tours))
             .catch((error) => console.error("Ошибка загрузки данных:", error));
     }, []);
-
-    if (!mounted) return null; // Ждем монтирования компонента
+    
+        if (!mounted) return null;
+        if (!tours) return <div>Тур не знайдено або завантаження...</div>;
 
     return (
         <div>
@@ -38,7 +39,6 @@ export default function Travel() {
                         md: "30px", // для экранов ≥ 960px
                       },
                     textAlign: "center",
-                    // paddingBottom: "10px",
                     fontFamily: "Playwrite India",
                     color: "#556B2F",
                     fontStyle: "italic",
@@ -210,7 +210,7 @@ export default function Travel() {
                                     },
                                     overflow: "hidden",
                                 }}
-                                onClick={() => router.push(`/tour/${item.id}`)}
+                                onClick={() => router.push(`/PageTourIndividual/${item.id}`)}
                             >
                                 <TableCell
                                     sx={{
@@ -369,86 +369,3 @@ export default function Travel() {
         </div>
     );
 }
-
-
-
-
-
-// "use client";
-// import { useEffect, useState } from "react";
-// import { useRouter } from "next/navigation";
-// import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Typography } from "@mui/material";
-// import styles from './css/MainPageBodyTravel.module.css';
-
-// export default function Travel() {
-//         type Tour = {
-//             id: string; // Добавим id для корректной работы с ключами и навигацией
-//             date: string;
-//             name: string;
-//             sity: string;
-//             description: string;
-//             seats: number;
-//             provider: string;
-//         };
-    
-//         const [tours, setTours] = useState<Tour[]>([]);
-//         const [mounted, setMounted] = useState(false);
-//         const router = useRouter(); // Перенес сюда
-    
-//         useEffect(() => {
-//             setMounted(true);
-//             fetch("/MainPageHeader.json")
-//                 .then((response) => response.json())
-//                 .then((data) => setTours(data.bodyData.tours))
-//                 .catch((error) => console.error("Ошибка загрузки данных:", error));
-//         }, []);
-    
-//         if (!mounted) return null; // Ждем монтирования компонента
-    
-
-// return (
-//     <div className={styles.container}>
-//       <Typography className={styles.title}>Найближчі тури</Typography>
-//       <TableContainer component={Paper} className={styles.tableContainer}>
-//         <div className={styles.tableWrapper}>
-//           <Table className={styles.table}>
-//             <TableHead className={styles.tableHead}>
-//               <TableRow>
-//                 <TableCell className={`${styles.tableHeadCell} ${styles.tableHeadCellDate}`}>
-//                   <strong>Дата</strong>
-//                 </TableCell>
-//                 <TableCell className={`${styles.tableHeadCell} ${styles.tableHeadCellName}`}>
-//                   <strong>Назва туру</strong>
-//                 </TableCell>
-//                 <TableCell className={styles.tableHeadCell}>
-//                   <strong>Наявність місць</strong>
-//                 </TableCell>
-//                 <TableCell className={styles.tableHeadCell}>
-//                   <strong>Організатор</strong>
-//                 </TableCell>
-//               </TableRow>
-//             </TableHead>
-//             <TableBody>
-//               {tours.map((item) => (
-//                 <TableRow
-//                   key={item.id}
-//                   className={styles.tableRow}
-//                   onClick={() => router.push(`/tour/${item.id}`)}
-//                 >
-//                   <TableCell className={styles.tableCell}>{item.date}</TableCell>
-//                   <TableCell className={styles.tableCell}>
-//                     <strong className={styles.tourName}>{item.name}</strong>
-//                     <Typography className={styles.tourCity}>{item.sity}</Typography>
-//                     <Typography className={styles.tourDescription}>{item.description}</Typography>
-//                   </TableCell>
-//                   <TableCell className={styles.tableCell}>{item.seats}</TableCell>
-//                   <TableCell className={styles.tableCell}>{item.provider}</TableCell>
-//                 </TableRow>
-//               ))}
-//             </TableBody>
-//           </Table>
-//         </div>
-//       </TableContainer>
-//     </div>
-//   );
-// }
