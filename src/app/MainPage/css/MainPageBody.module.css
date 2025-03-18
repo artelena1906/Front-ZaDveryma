@@ -412,7 +412,11 @@
   color: white;
 }
 
-
+@media screen and (max-width: 1200px) {
+  .containerBody {
+    gap: 0 important;
+  }
+  }
 
 /******MainPageBodyTravel*****************/
 

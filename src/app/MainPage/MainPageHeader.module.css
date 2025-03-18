@@ -275,6 +275,7 @@
 @media (max-width: 1200px) { /* Можно настроить breakpoint под ваши нужды */
   .containerBody {
     flex-direction: column; /* Меняем направление на вертикальное */
+    gap: 0; /* Убираем отступы между элементами */
   }
 
   .leftcolumn {

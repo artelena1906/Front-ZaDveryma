@@ -40,7 +40,6 @@
 .newsitem a {
   color: #FF6347;
   text-decoration: none;
-  /* font-weight: bold; */
   text-align: right;
 }
 
@@ -66,7 +65,6 @@
 
 .container{
   display: flex;
-  /* width: 100%; */
   flex-direction: column;
 }
 
@@ -77,7 +75,6 @@
   overflow-x: auto; /* Горизонтальная прокрутка */
   scroll-snap-type: x mandatory; /* Притягивание элементов при скролле */
   padding: 10px;
-  /* white-space: nowrap;  */
 }
 
 .h2Country {
@@ -91,18 +88,11 @@
   font-weight: bold;
 }
 
-/* .categoryitem {
-  position: relative;
-  overflow: hidden; /* Чтобы изображение не выходило за границы */
-  /* border-radius: 8px; */
-/*} */
-
 .categoryimage {
   width: 180px;
   height: 180px;
   border-radius: 5px;
   object-fit: cover;
-  /* margin-bottom: 10px; */
 }
 
 
@@ -167,8 +157,60 @@
 }
 
 
+@media screen and (max-width: 1200px) {
+  .news {
+    flex-direction: row; /* Элементы выстраиваются горизонтально */
+    flex-wrap: nowrap; /* Отключаем перенос на новую строку */
+    overflow-x: auto; /* Включаем горизонтальную прокрутку */
+    overflow-y: hidden; /* Убираем вертикальную прокрутку */
+    padding-bottom: 10px; /* Отступ снизу для скроллбара */
+    gap: 10px; /* Расстояние между элементами */
+    scroll-snap-type: x mandatory; /* Опционально: привязка скролла к элементам */
+    -webkit-overflow-scrolling: touch; /* Плавная прокрутка на мобильных устройствах */
+  }
 
-/******MainPageBodyTravel*****************/
+  .newsitem {
+    flex: 0 0 350px; /* Фиксированная ширина элемента, можно настроить */
+    min-width: 0; /* Предотвращает переполнение контента */
+    scroll-snap-align: start; /* Опционально: привязка к началу элемента */
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .newsitem {
+    flex: 0 0 300px; 
+  }
+
+  .newsitem h4 {
+    font-size: 16px;
+  }
+
+  .newsitem p {
+    font-size: 12px;
+  }
+
+  .newsitem a {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .newsitem {
+    flex: 0 0 250px; 
+  }
+
+  .newsitem h4 {
+    font-size: 14px;
+  }
+
+  .newsitem p {
+    font-size: 10px;
+  }
+
+  .newsitem a {
+    font-size: 10px;
+  }
+}
 
 
 
