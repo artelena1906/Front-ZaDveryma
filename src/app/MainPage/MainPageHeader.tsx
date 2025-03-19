@@ -1,4 +1,4 @@
-"use client"; // Добавляем директиву, так как будем использовать useState и useEffect
+"use client";
 import React, { useState, useEffect } from "react";
 import styles from "./css/MainPageHeader.module.css";
 import Link from "next/link";
@@ -21,14 +21,14 @@ export default function Header() {
     { href: "/", text: "Головна" },
     { href: "/PageCountry", text: "Країни" }, 
     { href: "/PageCountry", text: "Тури" },
-    {href: "/PageCountry", text: "Мрії"},
+    { href: "/PageCountry", text: "Мрії" },
     { href: "/PageAboutUs", text: "Блог" },
     { href: "/PageAboutUs", text: "Про нас" },
   ]);
 
-  
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
   useEffect(() => {
-    // Загружаем данные из JSON
     fetch("/MainPageHeader.json")
       .then((res) => res.json())
       .then((data) => {
@@ -37,7 +37,6 @@ export default function Header() {
           text: country.name,
         }));
 
-        // Обновляем menuItems, добавляя страны в пункт "Тури"
         setMenuItems((prevItems) =>
           prevItems.map((item) =>
             item.text === "Країни"
@@ -49,13 +48,17 @@ export default function Header() {
       .catch((error) => console.error("Ошибка загрузки данных:", error));
   }, []);
 
+  const handleItemClick = () => {
+    setIsDropdownOpen(false); // Закрываем меню после выбора
+  };
+
   return (
     <>
       <div className={styles.containerHeader}>
         <Link prefetch={true} href="/">
           <div className={styles.logoContainer}>
             <Image
-              src="/img/text_logo3.png"
+              src="/img/text_logof.png"
               alt="banner"
               width={500}
               height={200}
@@ -66,14 +69,19 @@ export default function Header() {
 
         <nav className={styles.menu}>
           {menuItems.map((item, index) => (
-            <div key={index} className={styles.menuItem}>
+            <div
+              key={index}
+              className={styles.menuItem}
+              onMouseEnter={() => item.subItems && setIsDropdownOpen(true)}
+              onMouseLeave={() => item.subItems && setIsDropdownOpen(false)}
+            >
               <Link href={item.href} className={styles.menubtn}>
                 {item.text}
               </Link>
-              {item.subItems && (
+              {item.subItems && isDropdownOpen && (
                 <ul className={styles.dropdown}>
                   {item.subItems.map((subItem, subIndex) => (
-                    <li key={subIndex}>
+                    <li key={subIndex} onClick={handleItemClick}>
                       <Link href={subItem.href}>{subItem.text}</Link>
                     </li>
                   ))}

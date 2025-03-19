@@ -86,4 +86,15 @@
         font-size: 12px;
     }
   }
+
+  @media screen and (max-width: 500px) {    
+    .categoryimage {
+        width: 100px;
+        height: 100px;
+    }
+
+    .categorytext {
+        font-size: 10px;
+    }
+  }
  

@@ -1,49 +1,72 @@
 /* Контейнер для картинки та опису */
 .aboutus {
-    display: flex;
-    /* Робимо горизонтальне вирівнювання */
-    align-items: center;
-    /* Вирівнювання по вертикалі */
-    gap: 20px;
-    /* Відстань між картинкою та текстом */
-    margin: 50px 20px 20px 20px;
-    /* Відступ перед нижнім текстом */
+    margin: 50px 40px 20px 40px;
 }
 
 /* Стилі для зображення */
 .img {
-    flex: 1;
-    /* Зображення займає половину простору */
+    float: left; 
     max-width: 500px;
-    /* Обмежуємо максимальну ширину */
     height: auto;
-    /* Зберігаємо пропорції */
+    margin: 0 30px 30px 0; 
+    border-radius: 12px; 
+    box-shadow: 0 0 10px rgba(0,0,0,0.5); 
 }
 
 /* Стилі для опису */
 .description {
-    flex: 1;
-    /* Опис займає половину простору */
-    width: 100%;
-    /* На всю ширину */
+    /* flex: 1;
+    width: 100%; */
     text-align: justify;
-    /* Вирівнюємо текст по ширині */
     font-size: 17px;
-    /* Розмір шрифту */
+    margin-bottom: 10px;
 }
 
 /* Стилі для нижнього тексту */
 .text {
-    /* width: 100%; */
     text-align: justify;
-    margin: 0 20px 20px 20px;
     font-size: 17px;
 }
 
 /* Додаткові стилі для контейнера */
 .containeraboutus {
     display: flex;
-    /* Горизонтальне вирівнювання */
     flex-direction: column;
-    /* Вертикальне вирівнювання */
+}
+
+@media screen and (max-width: 770px) {
+    .containeraboutus {
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .img {
+        float: none; /* Убираем обтекание */
+        display: block; /* Делаем изображение блочным элементом */
+        margin: 0 auto 20px auto; /* Центрируем изображение и добавляем отступ снизу */
+        max-width: 100%; /* Убедимся, что изображение не выходит за контейнер */
+    }
+
+    .description {
+        font-size: 15px;
+        margin: 0 15px 0 15px;
+     }
+
+    .text {
+        font-size: 15px;
+        margin: 0 15px 0 15px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .description {
+        font-size: 14px;
+        margin: 0 10px 0 10px;
+     }
+
+    .text {
+        font-size: 14px;
+        margin: 0 10px 0 10px;
+    }
 }

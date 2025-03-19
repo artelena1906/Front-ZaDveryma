@@ -22,24 +22,25 @@ export default function PageAboutUs() {
     }, []);
 
     if (!aboutus) {
-        return <div className={styles.container}>Завантаження...</div>;
+        return <div className={styles.containeraboutus}>Завантаження...</div>;
     }
 
     return (
-        <div className={styles.container}>
+        <div className={styles.containeraboutus}>
             <div className={styles.aboutus}>
                 <Image
                     className={styles.img}
-                    src="/img/travel.png"
+                    src="/img/travel.jpg"
                     alt="Про нас"
                     width={500} 
                     height={300} 
                 />
                 <p className={styles.description}>{aboutus.description}</p>
+                <p className={styles.text}>{aboutus.text}</p>
             </div>
-            <div className={styles.text}>
+            {/* <div className={styles.text}>
                 <p>{aboutus.text}</p>
-            </div>
+            </div> */}
         </div>
     );
 }
