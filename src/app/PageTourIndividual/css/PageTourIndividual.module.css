@@ -35,3 +35,100 @@
 .daySection {
   margin-bottom: 20px;
 }
+
+@media (max-width: 1450px) {
+  .tourDays {
+    margin: 20px 30px 20px 30px;
+  }
+}
+
+@media (max-width: 1350px) {
+   .imageGallery {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      gap: 10px;
+      padding: 0 10px;
+      -webkit-overflow-scrolling: touch;
+      width: 100%; /* Полная ширина контейнера */
+      justify-content: flex-start; /* Изображения начинаются с левого края */
+  }
+
+  .galleryImage {
+      flex-shrink: 0;
+      width: 350px;
+      height: 200px;
+      scroll-snap-align: start; /* Привязка к началу изображения */
+      transition: transform 0.3s ease-in-out;
+  }
+}
+
+@media (max-width: 1200px) {
+  .tourDays {
+    margin: 10px 15px 10px 15px;
+  }
+}
+
+@media (max-width: 700px) {
+  .tourDays {
+    margin: 10px 10px 10px 10px;
+  }
+
+  .imageGallery {
+      display: flex;
+      margin: 20px 0 15px 0;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      gap: 10px;
+      padding: 0 10px;
+      -webkit-overflow-scrolling: touch;
+      width: 100%; /* Полная ширина контейнера */
+      justify-content: flex-start; /* Изображения начинаются с левого края */
+  }
+
+  .galleryImage {
+      flex-shrink: 0;
+      width: 350px;
+      height: 200px;
+      scroll-snap-align: start; /* Привязка к началу изображения */
+      transition: transform 0.3s ease-in-out;
+  }
+}
+
+@media (max-width: 420px) {
+  .tourDays {
+    margin: 10px 5px 10px 5px;
+  }
+
+  .mapImage {
+     float: none;
+     display: block;
+     margin: 0 auto 20px auto;
+     max-width: 100%;
+ }
+
+ .imageGallery {
+     display: flex;
+     flex-direction: row;
+     flex-wrap: nowrap;
+     overflow-x: auto;
+     scroll-snap-type: x mandatory;
+     gap: 10px;
+     padding: 0 10px;
+     -webkit-overflow-scrolling: touch;
+     width: 100%; /* Полная ширина контейнера */
+     justify-content: flex-start; /* Изображения начинаются с левого края */
+ }
+
+ .galleryImage {
+     flex-shrink: 0;
+     width: 300px;
+     height: 150px;
+     scroll-snap-align: start; /* Привязка к началу изображения */
+     transition: transform 0.3s ease-in-out;
+ }
+}

@@ -19,7 +19,7 @@ export default function Header() {
 
   const [menuItems, setMenuItems] = useState<MenuItem[]>([
     { href: "/", text: "Головна" },
-    { href: "/PageCountry", text: "Країни" }, 
+    { href: "#", text: "Країни" },
     { href: "/PageCountry", text: "Тури" },
     { href: "/PageCountry", text: "Мрії" },
     { href: "/PageAboutUs", text: "Блог" },
@@ -40,7 +40,7 @@ export default function Header() {
         setMenuItems((prevItems) =>
           prevItems.map((item) =>
             item.text === "Країни"
-              ? { ...item, subItems: countries }
+              ? { ...item, subItems: countries, href: "#" }
               : item
           )
         );
@@ -48,8 +48,24 @@ export default function Header() {
       .catch((error) => console.error("Ошибка загрузки данных:", error));
   }, []);
 
+  const handleMenuClick = () => {
+    setIsDropdownOpen((prev) => !prev); // Переключаем состояние при клике
+  };
+
+  const handleMouseEnter = (itemText: string) => {
+    if (itemText === "Країни") {
+      setIsDropdownOpen(true); // Открываем меню только для "Країни"
+    }
+  };
+
+  const handleMouseLeave = (itemText: string) => {
+    if (itemText === "Країни") {
+      setIsDropdownOpen(false); // Закрываем меню только для "Країни"
+    }
+  };
+
   const handleItemClick = () => {
-    setIsDropdownOpen(false); // Закрываем меню после выбора
+    setIsDropdownOpen(false); // Закрываем меню после выбора страны
   };
 
   return (
@@ -72,12 +88,18 @@ export default function Header() {
             <div
               key={index}
               className={styles.menuItem}
-              onMouseEnter={() => item.subItems && setIsDropdownOpen(true)}
-              onMouseLeave={() => item.subItems && setIsDropdownOpen(false)}
+              onMouseEnter={() => handleMouseEnter(item.text)}
+              onMouseLeave={() => handleMouseLeave(item.text)}
             >
-              <Link href={item.href} className={styles.menubtn}>
-                {item.text}
-              </Link>
+              {item.text === "Країни" ? (
+                <span className={styles.menubtn} onClick={handleMenuClick}>
+                  {item.text}
+                </span>
+              ) : (
+                <Link href={item.href} className={styles.menubtn}>
+                  {item.text}
+                </Link>
+              )}
               {item.subItems && isDropdownOpen && (
                 <ul className={styles.dropdown}>
                   {item.subItems.map((subItem, subIndex) => (

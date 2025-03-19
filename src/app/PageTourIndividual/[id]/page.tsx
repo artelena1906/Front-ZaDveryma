@@ -57,19 +57,41 @@ export default function PageTourIndividual() {
 
     return (
         <div className={styles.tourcontainer}>
-            <Typography variant="h1" sx={{ fontSize: "2rem", fontWeight: "bold", color: "#556B2F", margin: "40px 0 20px 0", textAlign: "center" }}>
+            <Typography variant="h1" sx={{ fontSize: {
+                xs: "1.2rem",
+                sm: "1.7rem",
+                md: "2.0rem",
+            },
+                fontWeight: "bold", color: "#556B2F", margin: "40px 0 20px 0", textAlign: "center" }}>
                 {tour.name}
             </Typography>
-            <Typography variant="body1" sx={{ fontSize: "18px", textAlign: "center" }}>
+            <Typography variant="body1" sx={{ fontSize: {
+                 xs: "14px",
+                 sm: "16px",
+                 md: "18px",
+             },
+                textAlign: "center" }}>
                 <strong>Дата:</strong> {tour.date}
             </Typography>
-            <Typography variant="body1" sx={{ fontSize: "16px", marginTop: "20px", textAlign: "center" }}>
+            <Typography variant="body1" sx={{ fontSize: {
+                 xs: "10px",
+                 sm: "12px",
+                 md: "14px",
+             }, marginTop: "20px", textAlign: "center" }}>
                 {tour.sity}
             </Typography>
-            <Typography variant="body1" sx={{ fontSize: "16px", marginTop: "20px", textAlign: "center" }}>
+            <Typography variant="body1" sx={{ fontSize: {
+                 xs: "14px",
+                 sm: "16px",
+                 md: "18px",
+             }, marginTop: "20px", textAlign: "center" }}>
                 <strong>Залишилось місць:</strong> {tour.seats}
             </Typography>
-            <Typography variant="body1" sx={{ fontSize: "16px", textAlign: "center" }}>
+            <Typography variant="body1" sx={{ fontSize: {
+                 xs: "14px",
+                 sm: "16px",
+                 md: "18px",
+             }, textAlign: "center" }}>
                 <strong>Організатор:</strong> {tour.provider}
             </Typography>
 
