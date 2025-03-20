@@ -1,22 +1,26 @@
 "use client";
 import { useState, useEffect } from "react";
-import Image from "next/image"; // Використовуємо Image замість <img>
+import Image from "next/image";
 import styles from "./css/PageAboutUs.module.css";
 
 export default function PageAboutUs() {
-    interface AboutUS {
-        description: string;
+    interface DescriptionItem {
         text: string;
     }
 
-    const [aboutus, setAboutus] = useState<AboutUS | null>(null);
+    interface AboutUsItem {
+        title: string;
+        description: DescriptionItem[];
+    }
+
+    const [aboutus, setAboutus] = useState<AboutUsItem[] | null>(null);
 
     useEffect(() => {
         fetch("/PageAboutUs.json")
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);
-                setAboutus(data.bodyData.text);
+                setAboutus(data.bodyData); // Устанавливаем массив bodyData
             })
             .catch((error) => console.error("Ошибка загрузки данных:", error));
     }, []);
@@ -26,21 +30,28 @@ export default function PageAboutUs() {
     }
 
     return (
-        <div className={styles.containeraboutus}>
+        // <div className={styles.containeraboutus}>
             <div className={styles.aboutus}>
                 <Image
                     className={styles.img}
                     src="/img/travel.jpg"
                     alt="Про нас"
-                    width={500} 
-                    height={300} 
+                    width={500}
+                    height={300}
                 />
-                <p className={styles.description}>{aboutus.description}</p>
-                <p className={styles.text}>{aboutus.text}</p>
+                {/* Отображаем каждый элемент массива bodyData */}
+                {aboutus.map((item, index) => (
+                    <div key={index} className={styles.section}>
+                        <h2>{item.title}</h2>
+                        {/* Отображаем все элементы description как параграфы */}
+                        {item.description.map((desc, descIndex) => (
+                            <p key={descIndex} className={styles.description}>
+                                {desc.text}
+                            </p>
+                        ))}
+                    </div>
+                ))}
             </div>
-            {/* <div className={styles.text}>
-                <p>{aboutus.text}</p>
-            </div> */}
-        </div>
+        // </div>
     );
 }
