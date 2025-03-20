@@ -1,0 +1,24 @@
+.container {
+    display: flex;
+    margin: 40px 20px 50px 20px;
+    flex-direction: column;
+    text-align: center;
+}
+
+.container p{
+    margin: 10px 0 10px 0;
+}
+
+.containertour {
+    display: flex;
+    margin: 40px 0 40px 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: white;
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: white;
+}

@@ -8,6 +8,56 @@
   background-color: #F5F5DC;
 }
 
+.containerWithUs{
+display: flex;
+text-align: center;
+flex-direction: column;
+height: auto;
+margin: 20px;
+padding: 10px;
+background-color: #93C572;
+border-radius: 10px;
+}
+
+.containerWithUs h3{
+  font-size: 24px;
+  text-Align: center;
+  font-family: Playwrite India, sans-serif;
+  color: #556B2F;
+  font-style: italic;
+  font-weight: bold;
+  margin: 10px 0 10px 0;
+}
+
+.containerWithUs h4{
+  font-size: 14px;
+  text-Align: center;
+  font-family: Playwrite India, sans-serif;
+  color: #556B2F;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.containerWithUs p{
+  font-size: 12px;
+  text-Align: center;
+}
+
+.withuscontainer{
+  display: flex;
+  gap: 10px;
+  margin: 0 20px 0 20px;
+}
+
+.withusitem {
+  background: #FFFFFF;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+  flex: 1 1 0; /* flex-grow: 1, flex-shrink: 1, flex-basis: 0 */
+}
+
 .leftcolumn{
   display: flex;
   width: 25%;

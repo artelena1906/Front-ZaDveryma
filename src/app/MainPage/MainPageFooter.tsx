@@ -12,12 +12,15 @@ export default function MainPageFooter() {
                     <ul>
                         <li className={styles.text}>Про подорожі</li>
                         <li><Link href="/PageCountry">Країни</Link></li>
+                        <li><Link href="/PageTours">Тури</Link></li>
                         <li><Link href="/PageCountry">Мрії</Link></li>
                         <li><Link href="/PageCountry">Блог</Link></li>
                     </ul>
                     <ul>
                         <li className={styles.text}>Наші друзі</li>
-                        <li><Link href="/PageCountry">Кухня на підборах</Link></li>
+                        <li><Link href="/PageCountry">Мандрівник</Link></li>
+                        <li><Link href="/PageCountry">Мандрівник2</Link></li>
+                        <li><Link href="/PageCountry">Мандрівник3</Link></li>
                     </ul>
                     <ul>
                         <li className={styles.text}>Контакти</li>

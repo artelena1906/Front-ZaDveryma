@@ -20,7 +20,7 @@ export default function Header() {
   const [menuItems, setMenuItems] = useState<MenuItem[]>([
     { href: "/", text: "Головна" },
     { href: "#", text: "Країни" },
-    { href: "/PageCountry", text: "Тури" },
+    { href: "/PageTours", text: "Тури" },
     { href: "/PageCountry", text: "Мрії" },
     { href: "/PageAboutUs", text: "Блог" },
     { href: "/PageAboutUs", text: "Про нас" },
