@@ -195,7 +195,7 @@ export default function Travel() {
                     fontSize: "7px",
                   }
                 }}>
-                  <strong>Партнер</strong>
+                  <strong>Організатор</strong>
                 </TableCell>
               </TableRow>
             </TableHead>
@@ -256,6 +256,7 @@ export default function Travel() {
                         fontFamily: "Playwrite India",
                         fontStyle: "italic",
                         fontWeight: "bold",
+                        lineHeight: "1.0",
                         "@media (min-width: 1200px)": {
                           fontSize: "22px",
                         },
@@ -285,8 +286,10 @@ export default function Travel() {
                       variant="body2"
                       color="gray"
                       sx={{ fontSize: "10px", margin: "5px 0",
+                        lineHeight: "1.0",
                         "@media (max-width: 700px)": {
                           fontSize: "8px",
+                          margin: "2px 0",
                         },
                        }}
                     >
@@ -294,6 +297,7 @@ export default function Travel() {
                     </Typography>
                     <Typography variant="body2" color="black"
                       sx={{
+                        lineHeight: "1.2",
                         "@media (min-width: 1200px)": {
                           fontSize: "14px",
                         },
@@ -313,7 +317,7 @@ export default function Travel() {
                           fontSize: "10px",
                         },
                         "@media (max-width: 500px)": {
-                          fontSize: "8px",
+                          fontSize: "10px",
                         },
                       }}
 

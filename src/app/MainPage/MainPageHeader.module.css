@@ -30,16 +30,17 @@ border-radius: 10px;
 }
 
 .containerWithUs h4{
-  font-size: 14px;
+  font-size: 16px;
   text-Align: center;
   font-family: Playwrite India, sans-serif;
-  color: #556B2F;
+  /* color: #556B2F; */
+  color: red;
   font-style: italic;
   font-weight: bold;
 }
 
 .containerWithUs p{
-  font-size: 12px;
+  font-size: 14px;
   text-Align: center;
 }
 
@@ -297,29 +298,25 @@ border-radius: 10px;
   }
 
   .containerHeader {
-    flex-direction: column;
-    
+    flex-direction: column; 
   }
 
-}
-
-@media (max-width: 1100px) {
-  .searchInput  {
-    width:220px;
+  .withuscontainer {
+    flex-direction: row; /* Элементы выстраиваются горизонтально */
+    flex-wrap: nowrap; /* Отключаем перенос на новую строку */
+    overflow-x: auto; /* Включаем горизонтальную прокрутку */
+    overflow-y: hidden; /* Убираем вертикальную прокрутку */
+    padding-bottom: 10px; /* Отступ снизу для скроллбара */
+    gap: 10px; /* Расстояние между элементами */
+    scroll-snap-type: x mandatory; /* Опционально: привязка скролла к элементам */
+    -webkit-overflow-scrolling: touch; /* Плавная прокрутка на мобильных устройствах */
   }
 
-}
-
-
-@media (max-width: 900px) {
-  .searchInput  {
-    width:180px;
+  .withusitem {
+    flex: 0 0 350px; /* Фиксированная ширина элемента, можно настроить */
+    min-width: 0; /* Предотвращает переполнение контента */
+    scroll-snap-align: start; /* Опционально: привязка к началу элемента */
   }
-
-  .text{
-    font-size: 12px;
-  }
-
 }
 
 @media (max-width: 1200px) { /* Можно настроить breakpoint под ваши нужды */
@@ -339,6 +336,37 @@ border-radius: 10px;
     margin: 20px;
   }
 }
+
+@media (max-width: 1100px) {
+  .searchInput  {
+    width:220px;
+  }
+}
+
+@media (max-width: 900px) {
+  .searchInput  {
+    width:180px;
+  }
+
+  .text{
+    font-size: 12px;
+  }
+
+}
+
+@media (max-width: 450px) {
+  .withusitem {
+    flex: 0 0 300px;
+  }
+}
+
+@media (max-width: 400px) {
+  .withusitem {
+    flex: 0 0 250px;
+  }
+}
+
+
 
 
 

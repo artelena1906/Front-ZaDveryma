@@ -199,13 +199,13 @@
     flex: 0 0 250px; 
   }
 
-  .newsitem h4 {
+  /* .newsitem h4 {
     font-size: 14px;
-  }
+  } */
 
-  .newsitem p {
+  /* .newsitem p {
     font-size: 10px;
-  }
+  } */
 
   .newsitem a {
     font-size: 10px;
