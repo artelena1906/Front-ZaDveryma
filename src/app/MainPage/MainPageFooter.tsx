@@ -13,7 +13,7 @@ export default function MainPageFooter() {
                         <li className={styles.text}>Про подорожі</li>
                         <li><Link href="/PageCountry">Країни</Link></li>
                         <li><Link href="/PageTours">Тури</Link></li>
-                        <li><Link href="/PageCountry">Мрії</Link></li>
+                        <li><Link href="/PageDreams">Мрії</Link></li>
                         <li><Link href="/PageCountry">Блог</Link></li>
                     </ul>
                     <ul>

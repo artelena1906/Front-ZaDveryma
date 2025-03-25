@@ -141,7 +141,7 @@ export default function Header() {
     { href: "/", text: "Головна" },
     { href: "#", text: "Країни" },
     { href: "/PageTours", text: "Тури" },
-    { href: "/PageCountry", text: "Мрії" },
+    { href: "/PageDreams", text: "Мрії" },
     { href: "/PageAboutUs", text: "Блог" },
     { href: "/PageAboutUs", text: "Про нас" },
   ]);

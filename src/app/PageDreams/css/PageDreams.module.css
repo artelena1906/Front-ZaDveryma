@@ -1,0 +1,85 @@
+.containerDreams {
+    display: flex; /* Включаем Flexbox */
+    flex-direction: column; /* Колонки */
+}
+
+.containerDreams h3 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #678F4E;
+  text-align: center;
+  margin: 30px 0;
+}
+
+.containerDreams p {
+  font-size: 16px;
+  align-items: left;
+  margin: 0 20px 0 20px;
+}
+
+.container {
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 20px; 
+    justify-content: center; 
+    margin: 20px 0;
+    margin-top: auto;
+  }
+
+.container h4{
+    font-size: 24px;
+    font-weight: bold;
+    color: #678F4E;
+    text-align: center;
+    margin: 0 0 10px 0;
+}
+
+.containerCountry {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px 0;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    min-height: 500px; /* Минимальная высота для одинакового уровня кнопок */
+    display: flex;
+    flex-direction: column; /* Вертикальное выравнивание */
+  }
+
+  .containerCountry img {
+    display: block;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    width: 300px;
+    height: 200px;
+  }
+
+  .containerCountry p {
+    font-size: 14px;
+    margin: 0;
+    text-align: justify
+  }
+
+  .Button {
+    margin-top: auto; /* "Толкает" кнопку вниз */
+    display: flex;
+    justify-content: center; /* Центрирует кнопку внутри обертки */
+  }
+
+  .interestedButton {
+    padding: 5px 10px; /* Внутренние отступы */
+    font-size: 1rem; /* Размер шрифта */
+    color: #fff; /* Цвет текста */
+    margin: 20px auto;
+    display: block; 
+    background-color: #93C572; /* Цвет фона кнопки */
+    border: none; /* Убираем стандартную границу */
+    border-radius: 12px; /* Скругленные углы */
+    cursor: pointer; /* Курсор при наведении */
+    transition: background-color 0.3s; /* Плавный переход цвета */
+  }
+  
+  .interestedButton:hover {
+    background-color: #678F4E; /* Цвет при наведении */
+  }
