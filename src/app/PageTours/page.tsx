@@ -339,6 +339,7 @@ export default function PageTour() {
         const grouped: { [year: string]: { [month: string]: Tour[] } } = {};
 
         tours.forEach((tour) => {
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
             const [day, month, year] = tour.date.split(".");
             const monthIndex = parseInt(month, 10) - 1;
             const monthName = months[monthIndex];
