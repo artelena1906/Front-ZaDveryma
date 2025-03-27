@@ -19,8 +19,6 @@
   .containerBlog {
     display: flex;
     flex-direction: column;
-    /* padding: 20px; */
-    /* max-width: 1200px; */
     margin: 0;
     padding: 0;
   }
@@ -50,32 +48,16 @@
 
   .nav ul li {
     padding: 10px 15px;
-    /* Внутренние отступы */
     font-size: 1.1rem;
-    /* Размер шрифта */
     color: #fff;
-    /* Цвет текста */
-    /* margin: 20px auto; */
     width: 200px;
     text-align: center;
-    /* display: block;  */
     background-color: #93C572;
-    /* Цвет фона кнопки */
     border: none;
-    /* Убираем стандартную границу */
     border-radius: 12px;
-    /* Скругленные углы */
     cursor: pointer;
-    /* Курсор при наведении */
     transition: background-color 0.3s;
-    /* Плавный переход цвета */
   }
-
-  /* .nav ul li a {
-  text-decoration: none;
-  color: #fff;
-  font-size: 1.2rem;
-} */
 
   .nav ul li:hover {
     background-color: #678F4E;
@@ -111,11 +93,8 @@
   .smallPosts {
     display: grid;
     grid-template-columns: repeat(2, 280px);
-    /* Две колонки по 150px */
     grid-template-rows: repeat(2, 240px);
-    /* Две строки по 100px */
     gap: 20px;
-    /* width: 310px;  */
   }
 
   .smallPost {
@@ -145,15 +124,9 @@
     z-index: 1;
   }
 
-  /* .bigPost .titleOverlay {
-  font-size: 1.5rem;
-} */
-
-  /* Вид после клика: все статьи категории */
   .postsGrid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    /* gap: 20px; */
   }
 
   .postItem {
@@ -175,15 +148,11 @@
     font-size: 1.2rem;
     color: #333;
     margin-top: 10px;
-    /* Отступ сверху от картинки */
     text-align: center;
-    /* Центрируем текст */
     padding: 0 10px;
-    /* Отступы слева и справа, чтобы текст не прижимался к краям */
   }
 
   .postItem p {
-    /* font-size: 1.0rem; */
     margin-top: 10px;
   }
 
@@ -194,16 +163,16 @@
   }
 
   .container h1 {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     margin-bottom: 20px;
     text-align: center;
-    color: #333;
+    color: #678F4E;
   }
 
   .image {
     border-radius: 8px;
     width: 100%;
-    height: auto;
+    height: 400px;
     object-fit: cover;
     margin-bottom: 20px;
   }
@@ -221,15 +190,287 @@
     color: #333;
   }
 
-  .titleOverlay2 {
-    position: absolute;
-    bottom: 20px;
-    left: 10px;
-    right: 10px;
-    color: #fff;
-    background-color: #678F4E;
-    padding: 5px;
-    font-size: 1rem;
-    text-align: center;
-    border-radius: 12px;
+  @media screen and (max-width: 1450px) {
+    .postsLayout {
+      margin: 0 0 20px 0;
+    }
+    
+    .bigPost {
+      width: 600px;
+      height: 450px;
+    }
+
+    .smallPosts {
+      grid-template-columns: repeat(2, 250px);
+      grid-template-rows: repeat(2, 210px);
+    }
   }
+
+  @media screen and (max-width: 1250px) {
+    .postsLayout {
+      margin: 0 0 20px 0;
+    }
+    
+    .bigPost {
+      width: 500px;
+      height: 350px;
+    }
+
+    .smallPosts {
+      grid-template-columns: repeat(2, 220px);
+      grid-template-rows: repeat(2, 160px);
+    }
+  }
+
+  @media screen and (max-width: 1150px) {
+    .postsLayout {
+      margin: 0 0 20px 0;
+    }
+    
+    .bigPost {
+      width: 450px;
+      height: 280px;
+    }
+
+    .smallPosts {
+      grid-template-columns: repeat(2, 180px);
+      grid-template-rows: repeat(2, 130px);
+    }
+
+    .titleOverlay {
+      font-size: 0.8rem;
+    }
+  }
+
+@media screen and (max-width: 1000px) {
+  .postsLayout {
+    flex-direction: column; /* Большая картинка сверху, маленькие снизу */
+    align-items: center;
+    max-width: 750px; /* Ограничиваем ширину всей секции */
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .bigPost {
+    width: 750px; /* Остается неизменной */
+    height: 350px;
+  }
+
+  .smallPosts {
+    display: flex; /* Переключаем на flex для горизонтального ряда */
+    flex-direction: row;
+    justify-content: space-between; /* Равномерное распределение */
+    width: 750px; /* Фиксируем ширину, чтобы не превышать большую картинку */
+    gap: 10px; /* Уменьшаем промежуток для компактности */
+  }
+
+  .smallPost {
+    width: 180px; /* 700px / 4 - небольшой отступ = ~165px для каждой */
+    height: 150px; /* Уменьшаем высоту для пропорциональности */
+  }
+
+  .smallPostImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .titleOverlay {
+    font-size: 0.9rem; /* Уменьшаем текст для маленьких картинок */
+    padding: 3px; /* Уменьшаем отступы */
+  }
+
+  .nav ul li {
+    width: 180px;
+    font-size: 0.9rem;
+    padding: 10px 10px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .postsLayout {
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%; /* Полная ширина экрана */
+    padding: 0 20px; /* Отступы по бокам */
+  }
+
+  .bigPost {
+    width: 100%; /* Адаптивная ширина */
+    height: auto; /* Высота подстраивается под пропорции */
+    max-width: 700px; /* Максимум 700px */
+    aspect-ratio: 7 / 3.5; /* Сохраняем пропорции 700/350 */
+  }
+
+  .smallPosts {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 колонки равной ширины */
+    grid-template-rows: auto; /* Высота подстраивается */
+    gap: 10px;
+    width: 100%; /* Полная ширина контейнера */
+    max-width: 700px; /* Не шире большой картинки */
+  }
+
+  .smallPost {
+    width: 100%; /* Полная ширина ячейки сетки */
+    height: auto; /* Высота подстраивается */
+    aspect-ratio: 14 / 8; /* Сохраняем пропорции 280/260 */
+  }
+
+  .smallPostImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .titleOverlay {
+    font-size: 0.9rem;
+    padding: 3px;
+  }
+
+  .nav ul li {
+    width: 150px;
+    font-size: 0.9rem;
+    padding: 10px 5px;
+  }
+}
+
+
+ /* Медиазапрос для экранов до 750px */
+@media screen and (max-width: 750px) {
+  .containerBlog h1 {
+    font-size: 2.0rem;
+    margin: 5px;
+  }
+
+  .container h1 {
+    font-size: 2.0rem;
+    margin-bottom: 10px;
+  }
+
+  .categorySection {
+    margin: 0 20px 20px 20px;
+  }
+
+  .descriptionItem {
+    margin: 0 20px;
+  }
+
+  .nav ul li {
+    width: 200px;
+    font-size: 0.9rem;
+    padding: 10px 5px;
+  }
+
+  .nav ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Две колонки равной ширины */
+    grid-template-rows: auto auto; /* Два ряда */
+    gap: 10px;
+    padding: 0;
+    margin: 20px auto; /* Центрируем контейнер по горизонтали */
+    width: 100%;
+    max-width: 300px; /* Фиксируем ширину: 2 кнопки по 120px + gap 10px = 250px + запас */
+    justify-content: center; /* Центрируем содержимое сетки */
+    align-content: center; /* Центрируем строки по вертикали, если есть лишнее пространство */
+    box-sizing: border-box;
+  }
+
+  .postsLayout {
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+    padding: 0 20px; /* Оставляем ваши отступы */
+    box-sizing: border-box;
+  }
+
+  .bigPost {
+    width: 100%;
+    max-width: 700px;
+    height: auto;
+    aspect-ratio: 7 / 3.5; /* 700/350 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .bigPostImage {
+    width: 100%;
+    height: auto;
+  }
+
+  .bigPost .titleOverlay {
+    position: static;
+    background-color: transparent;
+    color: #333;
+    font-size: 0.9rem;
+    margin: 10px 0;
+    padding: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .smallPosts {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr)); /* Ограничиваем ширину колонок */
+    grid-template-rows: auto;
+    gap: 10px;
+    width: 100%;
+    max-width: 700px;
+    padding: 0;
+    margin: 15px auto;
+    box-sizing: border-box;
+  }
+
+  .smallPost {
+    width: 100%; /* Ширина ограничена ячейкой сетки */
+    max-width: 100%; /* Убеждаемся, что не превышает ячейку */
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  .smallPostImage {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 14 / 8; /* Пропорции 280/260 */
+    object-fit: cover;
+    max-width: 100%; /* Ограничиваем ширину картинки */
+  }
+
+  .smallPost .titleOverlay {
+    position: static; /* Текст под картинкой */
+    background-color: transparent;
+    color: #333;
+    font-size: 0.9rem;
+    margin-top: 10px;
+    padding: 0 5px;
+    width: 100%;
+    max-width: 100%; /* Ограничиваем ширину текста */
+    text-align: center;
+    display: block;
+    box-sizing: border-box;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .nav ul li {
+    width: 150px;
+    font-size: 0.9rem;
+    padding: 10px 5px;
+  }
+
+  .categorySection h3 {
+    font-size: 1.5rem;
+    margin: 5px 0;
+  }
+
+  .container h1 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+  }
+}

@@ -43,10 +43,8 @@ export default function BlogPost({ params }: { params: Promise<{ id: string }> }
       })
       .then((data: BlogData) => {
         console.log("Loaded JSON:", data);
-        // Исправляем доступ к blog: теперь data.bodyData.blog
         const foundPost = data.bodyData.blog.find((p) => {
           console.log("Checking post ID:", p.id);
-          // Приводим p.id к строке, так как resolvedParams.id — строка
           return String(p.id) === resolvedParams.id;
         });
         if (!foundPost) {
