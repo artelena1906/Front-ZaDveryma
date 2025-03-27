@@ -285,8 +285,9 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Typography } from "@mui/material";
 import Search from "../MainPage/MainPageSearch";
 
-export default function PageTour() {
-    interface Tour {
+// Отключаем статическую генерацию, чтобы useSearchParams работал без Suspense
+export const dynamic = "force-dynamic";
+interface Tour {
         id: string;
         date: string;
         country: string;
@@ -297,6 +298,8 @@ export default function PageTour() {
         provider: string;
     }
 
+export default function PageTour() {
+    
     const [tours, setTours] = useState<Tour[]>([]);
     const router = useRouter();
     const searchParams = useSearchParams();
