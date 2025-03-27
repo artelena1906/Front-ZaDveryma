@@ -301,30 +301,47 @@ interface Tour {
 export default function PageTour() {
     
     const [tours, setTours] = useState<Tour[]>([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState<string | null>(null);
     const router = useRouter();
     const searchParams = useSearchParams();
 
     useEffect(() => {
-        fetch("/MainPageHeader.json")
-            .then((res) => res.json())
-            .then((data) => {
+        // Проверяем, что код выполняется на клиенте
+        if (typeof window === "undefined") return;
+
+        const fetchTours = async () => {
+            try {
+                setLoading(true);
+                const res = await fetch("/MainPageHeader.json");
+                if (!res.ok) throw new Error("Не вдалося завантажити дані");
+                const data = await res.json();
+
                 const allTours = data.bodyData.tours;
-                const country = searchParams.get("country") || "";
+                const country = searchParams.get("country") || "Всі країни";
                 const dateStr = searchParams.get("date");
 
                 const filteredTours = allTours.filter((tour: Tour) => {
                     const tourDate = parseTourDate(tour.date);
                     const selectedDate = dateStr ? new Date(dateStr) : null;
 
-                    const matchesCountry = country === "" || country === "Всі країни" ? true : tour.country === country;
+                    const matchesCountry = country === "Всі країни" ? true : tour.country === country;
                     const matchesDate = selectedDate ? tourDate >= selectedDate : true;
 
                     return matchesCountry && matchesDate;
                 });
 
                 setTours(filteredTours);
-            })
-            .catch((error) => console.error("Ошибка загрузки данных:", error));
+                setError(null);
+            } catch (err) {
+                setError("Помилка при завантаженні турів");
+                console.error(err);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchTours();
     }, [searchParams]);
 
     const parseTourDate = (dateStr: string): Date => {
