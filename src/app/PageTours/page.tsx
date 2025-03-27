@@ -395,6 +395,41 @@ export default function PageTour() {
         router.push(`/PageTourIndividual/${tourId}`);
     };
 
+    if (loading) {
+        return (
+            <Typography
+                sx={{
+                    textAlign: "center",
+                    marginTop: "20px",
+                    fontSize: "20px",
+                    color: "#556B2F",
+                    fontFamily: "Playwrite India",
+                    fontStyle: "italic",
+                }}
+            >
+                Немає турів за вашими критеріями
+            </Typography>
+        );
+    }
+
+    if (error) {
+        return (
+            <Typography
+                sx={{
+                    textAlign: "center",
+                    marginTop: "20px",
+                    fontSize: "20px",
+                    color: "#FF0000",
+                    fontFamily: "Playwrite India",
+                    fontStyle: "italic",
+                }}
+            >
+                {error}
+            </Typography>
+        );
+    }
+
+    // Отображаем сообщение, если туров нет
     if (tours.length === 0) {
         return (
             <Typography
