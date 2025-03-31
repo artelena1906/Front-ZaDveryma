@@ -17,6 +17,14 @@ export default function BookingForm({ tourTitle, onClose }: BookingFormProps) {
       e.preventDefault();
       setIsLoading(true);
 
+      // Простая проверка формата телефона
+    const phoneRegex = /^\+38\s\(\d{3}\)\s\d{3}-\d{2}-\d{2}$/;
+    if (!phoneRegex.test(phone)) {
+      alert("Будь ласка, введіть телефон в форматі +38 (ХХХ) ХХХ-ХХ-ХХ"); // Используем двойные кавычки
+      setIsLoading(false);
+      return;
+    }
+
     try {
       const message = `Тур: ${tourTitle}\nХоче забронювати: ${name}\nТелефон: ${phone}`;
       
