@@ -76,7 +76,7 @@ export default function BookingForm({ tourTitle, onClose }: BookingFormProps) {
           </div>
           <div className={styles.buttonGroup}>
             <button type="submit" disabled={isLoading}>
-              {isLoading ? 'Відправка...' : 'Віправити'}
+              {isLoading ? 'Відправка...' : 'Відправити'}
             </button>
             <button type="button" onClick={onClose}>
               Закрыть

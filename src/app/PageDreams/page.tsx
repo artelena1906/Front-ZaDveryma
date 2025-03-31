@@ -3,9 +3,11 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import styles from "./css/PageDreams.module.css";
 import WithUs from "../MainPage/MainPageBodyWithUs";
+import BookingForm from "../../components/PageBookingForm"; // Импортируем BookingForm
 
 export default function PageDreams() {
   interface CountryItem {
+    id: number;
     namecountry: string;
     descriptioncountry: string;
     urlphoto: string;
@@ -18,6 +20,8 @@ export default function PageDreams() {
   }
 
   const [dreams, setDreams] = useState<DreamsItem | null>(null);
+  const [showForm, setShowForm] = useState(false); // Состояние для показа формы
+  const [selectedCountry, setSelectedCountry] = useState<string | null>(null); // Выбранная страна
 
   useEffect(() => {
     fetch("/PageDreams.json")
@@ -36,6 +40,16 @@ export default function PageDreams() {
       });
   }, []);
 
+  const handleJoinClick = (countryName: string) => {
+    setSelectedCountry(countryName); // Устанавливаем выбранную страну
+    setShowForm(true); // Показываем форму
+  };
+
+  const handleCloseForm = () => {
+    setShowForm(false); // Скрываем форму
+    setSelectedCountry(null); // Очищаем выбранную страну
+  };
+
   if (!dreams) {
     return <div>Завантаження...</div>;
   }
@@ -45,30 +59,39 @@ export default function PageDreams() {
       <h3>{dreams.title}</h3>
       <p>{dreams.description}</p>
       <div className={styles.container}>
-      {dreams.country && dreams.country.length > 0 ? (
-        dreams.country.map((country, index) => (
-          <div key={index} className={styles.containerCountry}>
-            <h4>{country.namecountry}</h4>
-            <Image
-              src={country.urlphoto}
-              alt={country.namecountry}
-              width={300}
-              height={200}
-            />
-          
-            <p>{country.descriptioncountry}</p>
-            <div className={styles.Button}>
-            <button className={styles.interestedButton}>Долучитися до мрії!</button>
+        {dreams.country && dreams.country.length > 0 ? (
+          dreams.country.map((country, index) => (
+            <div key={index} className={styles.containerCountry}>
+              <h4>{country.namecountry}</h4>
+              <Image
+                src={country.urlphoto}
+                alt={country.namecountry}
+                width={300}
+                height={200}
+              />
+              <p>{country.descriptioncountry}</p>
+              <div className={styles.Button}>
+                <button
+                  className={styles.interestedButton}
+                  onClick={() => handleJoinClick(country.namecountry)} // Открываем форму
+                >
+                  Долучитися до мрії!
+                </button>
+              </div>
             </div>
-          </div>
-        ))
-      ) : (
-        <p>Країни відсутні</p>
-      )}
+          ))
+        ) : (
+          <p>Країни відсутні</p>
+        )}
       </div>
       <div>
-      <WithUs />
+        <WithUs />
       </div>
+
+      {/* Показываем форму, если showForm === true */}
+      {showForm && selectedCountry && (
+        <BookingForm tourTitle={selectedCountry} onClose={handleCloseForm} />
+      )}
     </div>
   );
 }
