@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from 'react';
-import styles from "./css/PageBookingForm.module.css"; 
+import styles from "../../src/app/PageBookingForm/css/PageBookingForm.module.css"; 
 
 // Определяем интерфейс для пропсов
 interface BookingFormProps {

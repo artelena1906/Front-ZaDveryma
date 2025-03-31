@@ -4,7 +4,7 @@ import styles from "../css/PageTourIndividual.module.css";
 import { useParams } from "next/navigation";
 import Image from "next/image";
 import { Typography } from "@mui/material";
-import BookingForm from "../../PageBookingForm/page"; 
+import BookingForm from "../../../components/PageBookingForm"; 
 
 interface TourDay {
     day: string;
