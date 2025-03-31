@@ -1,9 +1,10 @@
 "use client";
 import { useEffect, useState } from "react";
-import styles from "../css/PageTourIndividual.module.css"; // Убедитесь, что путь к CSS правильный
+import styles from "../css/PageTourIndividual.module.css"; 
 import { useParams } from "next/navigation";
 import Image from "next/image";
 import { Typography } from "@mui/material";
+import BookingForm from "../../PageBookingForm/page"; 
 
 interface TourDay {
     day: string;
@@ -30,6 +31,7 @@ interface Tours {
 export default function PageTourIndividual() {
     const [tour, setTour] = useState<Tours | null>(null);
     const [mounted, setMounted] = useState(false);
+    const [showBookingForm, setShowBookingForm] = useState(false);
     const params = useParams();
     const tourId = params?.id;
 
@@ -46,10 +48,10 @@ export default function PageTourIndividual() {
                 if (selectedTour) {
                     setTour(selectedTour);
                 } else {
-                    console.error(`Тур с id ${tourId} не найден`);
+                    console.error(`Тур з id ${tourId} не знайден`);
                 }
             })
-            .catch((error) => console.error("Ошибка загрузки данных:", error));
+            .catch((error) => console.error("Помилка завантаження даних:", error));
     }, [tourId]);
 
     if (!mounted) return null;
@@ -125,6 +127,22 @@ export default function PageTourIndividual() {
                         </div>
                     ))}
                 </div>
+            )}
+            <div>
+                <button 
+                    className={styles.button}
+                    onClick={() => setShowBookingForm(true)}
+                >
+                    Забронювати тур
+                </button>
+            </div>
+
+            {/* Добавляем форму как модальное окно */}
+            {showBookingForm && (
+                <BookingForm 
+                    tourTitle={tour.name}
+                    onClose={() => setShowBookingForm(false)}
+                />
             )}
         </div>
     );
