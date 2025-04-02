@@ -139,10 +139,10 @@ export default function PageDreams() {
       .catch((error) => console.error("Ошибка загрузки данных:", error));
   }, []);
 
-  const handleJoinClick = (countryName: string) => {
-    setSelectedCountry(countryName);
-    setShowForm(true);
-  };
+  // const handleJoinClick = (countryName: string) => {
+  //   setSelectedCountry(countryName);
+  //   setShowForm(true);
+  // };
 
   const handleCloseForm = () => {
     setShowForm(false);
