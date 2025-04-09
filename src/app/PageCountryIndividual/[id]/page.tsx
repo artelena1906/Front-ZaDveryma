@@ -192,122 +192,42 @@ export default function PageCountryIndividual() {
                                     <TableRow sx={{ backgroundColor: "#F5F5DC" }}>
                                         <TableCell sx={{
                                             border: "1px solid rgba(128, 128, 128, 0.1)", textAlign: "center",
-                                            "@media (min-width: 1200px)": {
-                                                width: "100px",
-                                                fontSize: "12px",
+                                            width: "12%", // Процентная ширина для пропорциональности
+                                            minWidth: "80px", // Минимальная ширина для маленьких экранов
+                                            fontSize: {
+                                                xs: "8px", // Адаптивный размер текста
+                                                sm: "10px",
+                                                md: "12px",
+                                                lg: "14px",
                                             },
-                                            "@media (max-width: 1000px)": {
-                                                width: "80px",
-                                                fontSize: "10px",
-                                            },
-                                            "@media (max-width: 800px)": {
-                                                width: "70px",
-                                                fontSize: "10px",
-                                            },
-                                            "@media (max-width: 700px)": {
-                                                width: "60px",
-                                                fontSize: "10px",
-                                            },
-                                            "@media (max-width: 600px)": {
-                                                width: "55px",
-                                                fontSize: "8px",
-                                            },
-                                            "@media (max-width: 500px)": {
-                                                width: "50px",
-                                                fontSize: "8px",
-                                            }
                                         }}>
                                             <strong>Дата</strong>
                                         </TableCell>
                                         <TableCell sx={{
                                             border: "1px solid rgba(128, 128, 128, 0.1)", textAlign: "center",
-
-                                            "@media (min-width: 1200px)": {
-                                                width: "600px",
-                                                fontSize: "14px",
+                                            width: "75%", // Основная колонка занимает большую часть
+                                            minWidth: "200px",
+                                            fontSize: {
+                                                xs: "8px",
+                                                sm: "10px",
+                                                md: "12px",
+                                                lg: "14px",
                                             },
-                                            "@media (max-width: 1199px)": {
-                                                width: "600px",
-                                                fontSize: "14px",
-                                            },
-                                            "@media (max-width: 1000px)": {
-                                                width: "500px",
-                                                fontSize: "12px",
-                                            },
-                                            "@media (max-width: 800px)": {
-                                                width: "400px",
-                                                fontSize: "10px",
-                                            },
-                                            "@media (max-width: 700px)": {
-                                                width: "350px",
-                                                fontSize: "10px",
-                                            },
-                                            "@media (max-width: 600px)": {
-                                                width: "300px",
-                                                fontSize: "10px",
-                                            },
-                                            "@media (max-width: 500px)": {
-                                                width: "250px",
-                                                fontSize: "8px",
-                                            },
-                                            "@media (max-width: 450px)": {
-                                                width: "200px",
-                                                fontSize: "8px",
-                                            }
                                         }}>
                                             <strong>Назва туру</strong>
                                         </TableCell>
                                         <TableCell sx={{
                                             border: "1px solid rgba(128, 128, 128, 0.1)", textAlign: "center", margin: "0", padding: "0", lineHeight: "1.2",
-                                            "@media (min-width: 1200px)": {
-                                                fontSize: "14px",
+                                            width: "13%",
+                                            minWidth: "50px",
+                                            fontSize: {
+                                                xs: "8px",
+                                                sm: "10px",
+                                                md: "12px",
+                                                lg: "14px",
                                             },
-                                            "@media (max-width: 1199px)": {
-                                                fontSize: "14px",
-                                            },
-                                            "@media (max-width: 1000px)": {
-                                                fontSize: "12px",
-                                            },
-                                            "@media (max-width: 800px)": {
-                                                fontSize: "10px",
-                                            },
-                                            "@media (max-width: 700px)": {
-                                                fontSize: "9px",
-                                            },
-                                            "@media (max-width: 600px)": {
-                                                fontSize: "8px",
-                                            },
-                                            "@media (max-width: 500px)": {
-                                                fontSize: "7px",
-                                            }
                                         }}>
                                             <strong>Наявність місць</strong>
-                                        </TableCell>
-                                        <TableCell sx={{
-                                            border: "1px solid rgba(128, 128, 128, 0.1)", textAlign: "center", margin: "0", padding: "0",
-                                            "@media (min-width: 1200px)": {
-                                                fontSize: "14px",
-                                            },
-                                            "@media (max-width: 1199px)": {
-                                                fontSize: "14px",
-                                            },
-                                            "@media (max-width: 1000px)": {
-                                                fontSize: "12px",
-                                            },
-                                            "@media (max-width: 800px)": {
-                                                fontSize: "10px",
-                                            },
-                                            "@media (max-width: 700px)": {
-                                                fontSize: "9px",
-                                            },
-                                            "@media (max-width: 600px)": {
-                                                fontSize: "8px",
-                                            },
-                                            "@media (max-width: 500px)": {
-                                                fontSize: "7px",
-                                            }
-                                        }}>
-                                            <strong>Партнер</strong>
                                         </TableCell>
                                     </TableRow>
                                 </TableHead>
@@ -331,26 +251,11 @@ export default function PageCountryIndividual() {
                                             <TableCell
                                                 sx={{
                                                     border: "1px solid rgba(128, 128, 128, 0.2)", margin: "0", padding: "0",
-                                                    "@media (min-width: 1200px)": {
-                                                        fontSize: "14px",
-                                                    },
-                                                    "@media (max-width: 1199px)": {
-                                                        fontSize: "14px",
-                                                    },
-                                                    "@media (max-width: 1000px)": {
-                                                        fontSize: "12px",
-                                                    },
-                                                    "@media (max-width: 800px)": {
-                                                        fontSize: "10px",
-                                                    },
-                                                    "@media (max-width: 700px)": {
-                                                        fontSize: "9px",
-                                                    },
-                                                    "@media (max-width: 600px)": {
-                                                        fontSize: "8px",
-                                                    },
-                                                    "@media (max-width: 500px)": {
-                                                        fontSize: "7px",
+                                                    fontSize: {
+                                                        xs: "7px",
+                                                        sm: "9px",
+                                                        md: "12px",
+                                                        lg: "14px",
                                                     },
                                                     textAlign: "center",
                                                 }}
@@ -397,9 +302,15 @@ export default function PageCountryIndividual() {
                                                     variant="body2"
                                                     color="gray"
                                                     sx={{
-                                                        fontSize: "10px", margin: "5px 0",
+                                                        fontSize: "12px", margin: "5px 0",
+                                                        lineHeight: "1.0",
                                                         "@media (max-width: 700px)": {
+                                                            fontSize: "10px",
+                                                            margin: "3px 0",
+                                                        },
+                                                        "@media (max-width: 500px)": {
                                                             fontSize: "8px",
+                                                            margin: "2px 0",
                                                         },
                                                     }}
                                                 >
@@ -428,61 +339,21 @@ export default function PageCountryIndividual() {
                                                         "@media (max-width: 500px)": {
                                                             fontSize: "8px",
                                                         },
+                                                        lineHeight: "1.2",
                                                     }}
-
-
                                                 >
                                                     {item.description}
                                                 </Typography>
                                             </TableCell>
                                             <TableCell sx={{
                                                 border: "1px solid rgba(128, 128, 128, 0.2)", textAlign: "center", margin: "0", padding: "0",
-                                                "@media (min-width: 1200px)": {
-                                                    fontSize: "14px",
-                                                },
-                                                "@media (max-width: 1199px)": {
-                                                    fontSize: "14px",
-                                                },
-                                                "@media (max-width: 1000px)": {
-                                                    fontSize: "12px",
-                                                },
-                                                "@media (max-width: 800px)": {
-                                                    fontSize: "10px",
-                                                },
-                                                "@media (max-width: 700px)": {
-                                                    fontSize: "9px",
-                                                },
-                                                "@media (max-width: 600px)": {
-                                                    fontSize: "8px",
-                                                },
-                                                "@media (max-width: 500px)": {
-                                                    fontSize: "7px",
-                                                }
-                                            }}>{item.seats}</TableCell>
-                                            <TableCell sx={{
-                                                border: "1px solid rgba(128, 128, 128, 0.2)", textAlign: "center", margin: "0", padding: "0",
-                                                "@media (min-width: 1200px)": {
-                                                    fontSize: "14px",
-                                                },
-                                                "@media (max-width: 1199px)": {
-                                                    fontSize: "14px",
-                                                },
-                                                "@media (max-width: 1000px)": {
-                                                    fontSize: "12px",
-                                                },
-                                                "@media (max-width: 800px)": {
-                                                    fontSize: "10px",
-                                                },
-                                                "@media (max-width: 700px)": {
-                                                    fontSize: "9px",
-                                                },
-                                                "@media (max-width: 600px)": {
-                                                    fontSize: "8px",
-                                                },
-                                                "@media (max-width: 500px)": {
-                                                    fontSize: "7px",
-                                                }
-                                            }}>{item.provider}</TableCell>
+                                                fontSize: {
+                                                    xs: "7px",
+                                                    sm: "9px",
+                                                    md: "12px",
+                                                    lg: "14px",
+                                                  },
+                                            }}>{item.seats}</TableCell>                                        
                                         </TableRow>
                                     ))}
                                 </TableBody>

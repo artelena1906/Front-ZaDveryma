@@ -25,7 +25,7 @@ interface Tours {
     image?: ImageItem[];
     tour?: TourDay[];
     seats: string;
-    provider: string;
+    counter: number;
 }
 
 export default function PageTourIndividual() {
@@ -94,7 +94,7 @@ export default function PageTourIndividual() {
                  sm: "16px",
                  md: "18px",
              }, textAlign: "center" }}>
-                <strong>Організатор:</strong> {tour.provider}
+                <strong>Кількість днів:</strong> {tour.counter}
             </Typography>
 
             {tour.image && tour.image.length > 0 && (
