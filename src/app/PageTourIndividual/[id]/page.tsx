@@ -133,7 +133,7 @@ export default function PageTourIndividual() {
                     className={styles.button}
                     onClick={() => setShowBookingForm(true)}
                 >
-                    Забронювати тур
+                    Отримати деталі та вартість туру
                 </button>
             </div>
 
